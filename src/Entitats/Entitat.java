@@ -1,4 +1,6 @@
-class Entitat {
+package Entitats;
+
+public class Entitat {
     /* ATRIBUTOS */
     private String  nom;
     private String  telf;
