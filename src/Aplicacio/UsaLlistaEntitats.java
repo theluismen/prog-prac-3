@@ -1,10 +1,7 @@
-package Aplicacio;
-
-// import Entitats.Entitat;
 import Entitats.LlistaEntitats;
 
 // Clase que valida la clase LlistaEntitats
-class UsaLlistaEntitats {
+public class UsaLlistaEntitats {
     public static void main ( String[] args ) {
         LlistaEntitats llista = new LlistaEntitats( 10 );
         int i = 0;

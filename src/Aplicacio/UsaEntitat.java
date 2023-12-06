@@ -1,9 +1,7 @@
-package Aplicacio;
-
 import Entitats.Entitat;
 
 // Clase que valida la clase Entitat
-class UsaEntitat {
+public class UsaEntitat {
     public static void main ( String[] args ) {
         Entitat entitat = new Entitat ("Apple", "660083024", "apple@apple.com");
 
