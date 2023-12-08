@@ -6,15 +6,17 @@ import Entitats.Entitat;
 public class Taller extends Activitat {
     /* ATRIBUTOS */
     private int hora;
-    private int durada; // Mesura en hores
+    private int durada; // Mesura en minuts
+    private int capacitat;
     // private LlistaReserves reserves;
 
     /* CONSTRUCTOR */
     public Taller ( String nom, String lloc, int cpostal, int dia, Entitat entitat, int hora, int durada, int capacitat ) {
         super( nom, lloc, cpostal, dia, entitat );
-        this.hora       = hora;
-        this.durada     = durada;
-        // this.reserves   = new LlistaReserves( capacitat );
+        this.hora      = hora;
+        this.durada    = durada;
+        this.capacitat = capacitat;
+        // this.reserves  = new LlistaReserves( capacitat );
     }
 
     /* METODOS */
@@ -31,7 +33,7 @@ public class Taller extends Activitat {
     }
 
     /**
-    * Getter de la durada del taller
+    * Getter de la durada del taller en minuts
     *
     * @return this.durada  Durada de realitzacio del Taller
     */
@@ -42,11 +44,20 @@ public class Taller extends Activitat {
     /**
     * Getter de la capacitat del taller
     *
-    * @return this.reserves.length  Capacitat del taller
+    * @return this.capacitat  Capacitat del taller
     */
-    // public int getCapacitat () {
-    //     return this.reserves.length;
-    // }
+    public int getCapacitat () {
+        return this.capacitat;
+    }
+
+    /**
+    * Getter de la capacitat del taller
+    *
+    * @return this.capacitat  Capacitat del taller
+    */
+    public int getCapacitat () {
+        return this.capacitat;
+    }
 
     /**
     * Getter de les reserves fetes i guardades.
@@ -65,4 +76,18 @@ public class Taller extends Activitat {
     // public int getNLliures () {
     //     return this.capacitat - this.reserves.getNElem();
     // }
+
+    /* METODOS: Varios */
+    public Taller copia () {
+        return new Taller ( this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getEntitat().copia(), this.hora, this.durada, this.capacitat);
+    }
+
+    /**
+    * Metode que retorna una copia de l'instancia
+    *
+    * @return entitat  Copia de l'entitat
+    */
+    public String toString () {
+        return super.toString() + ":" + this.hora + ":" + this.durada + ":" + this.capacitat;
+    }
 }

@@ -1,4 +1,5 @@
 import Activitats.Activitat;
+import Activitats.Taller;
 import Entitats.Entitat;
 
 // Clase que valida la clase LlistaEntitats
@@ -8,13 +9,17 @@ class UsaActivitat {
             "Firma Llibres", "Tarragona", 43205, 25,
             new Entitat ("Apple", "660083024", "apple@apple.com")
         );
+        System.out.println( activitat.toString() );
 
-        Activitat activitat2 = new Activitat (
-            "Firma Llibres", "Murcia", 43205, 25,
-            new Entitat ("Apple", "660083024", "apple@apple.com")
+        Taller taller = new Taller (
+            "Taller LEGO", "Reus", 43205, 25,
+            new Entitat ("Apple", "660083024", "apple@apple.com"), 17, 30, 35
         );
 
-        System.out.println( activitat.toString() );
-        System.out.println( activitat2.toString() );
+        System.out.println( taller.toString() );
+
+        Taller taller2 = taller.copia();
+
+        System.out.println( taller.toString() );
     }
 }
