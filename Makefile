@@ -31,7 +31,7 @@ UsaEntitat: ./bin/UsaEntitat.class
 UsaLlistaEntitats: ./bin/UsaLlistaEntitats.class
 	java -cp $(CP) $@
 
-# Eliminar todos los .class de ./bin/
+# Eliminar todos los .class de ./bin/ y directorios
 clean:
 	find $(OUTPUT_DIR)/* -iname *.class | xargs rm -f
-	rmdir ./bin/Entitats ./bin/Aplicacio
+	find $(OUTPUT_DIR)/* -type d | xargs rmdir
