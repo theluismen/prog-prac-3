@@ -47,14 +47,5 @@ public class Xerrada extends Activitat {
         return "Xerrada [hora=" + hora + ", nomAutor=" + nomAutor + super.toString()+"]";
     }
 
-    /**
-    * Metode que retorna una copia de xerrada
-    *
-    * @return xerrada  una copia de la xerrada
-    */
-    /*public Xerrada copia () {
-        return new Xerrada (this.nomAutor, nom,  lloc,  cpostal,  dia);
-    }
-    
-*/
+   
 }
