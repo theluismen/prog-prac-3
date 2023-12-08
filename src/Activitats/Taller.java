@@ -1,3 +1,7 @@
+package Activitats;
+
+import Entitats.Entitat;
+
 // Clase Taller ( filla de Activitat )
 public class Taller extends Activitat {
     /* ATRIBUTOS */
@@ -6,10 +10,11 @@ public class Taller extends Activitat {
     // private LlistaReserves reserves;
 
     /* CONSTRUCTOR */
-    public Taller ( int hora, int durada, int capacitat ) {
+    public Taller ( String nom, String lloc, int cpostal, int dia, Entitat entitat, int hora, int durada, int capacitat ) {
+        super( nom, lloc, cpostal, dia, entitat );
         this.hora       = hora;
         this.durada     = durada;
-        // this.reserves   = new LlistaUsuaris( capacitat );
+        // this.reserves   = new LlistaReserves( capacitat );
     }
 
     /* METODOS */

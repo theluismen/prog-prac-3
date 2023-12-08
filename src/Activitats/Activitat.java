@@ -22,12 +22,13 @@ public class Activitat {
      * @param   cpostal Codi Postal de l'activitat
      * @param   dia     Dia de l'activitat
      */
-    public Activitat ( String nom, String lloc, int cpostal, int dia ) {
+    public Activitat ( String nom, String lloc, int cpostal, int dia, Entitat entitat ) {
         this.codi    = crearCodi( nom );
         this.nom     = nom;
         this.lloc    = lloc;
         this.cpostal = cpostal;
         this.dia     = dia;
+        this.entitat = entitat.copia();
     }
 
     /* METODOS */
@@ -53,6 +54,7 @@ public class Activitat {
      * @return  String  String que conte informació
      */
      public String toString ( ) {
-         return this.codi;
+         return this.codi + ":" + this.nom + ":" + this.lloc + ":" +
+                this.cpostal + ":" + this.dia + ":" + this.entitat.getNom();
      }
 }
