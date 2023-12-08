@@ -22,11 +22,29 @@ public class Taller extends Activitat {
 
     /* METODOS: Getters */
     /**
+    * Getter de la hora del taller
+    *
+    * @return this.hora  Hora de realitzacio del Taller
+    */
+    public int getHora () {
+        return this.hora;
+    }
+
+    /**
+    * Getter de la durada del taller
+    *
+    * @return this.durada  Durada de realitzacio del Taller
+    */
+    public int getDurada () {
+        return this.durada;
+    }
+
+    /**
     * Getter de la capacitat del taller
     *
     * @return this.reserves.length  Capacitat del taller
     */
-    // public int getCapacidad () {
+    // public int getCapacitat () {
     //     return this.reserves.length;
     // }
 
@@ -47,5 +65,4 @@ public class Taller extends Activitat {
     // public int getNLliures () {
     //     return this.capacitat - this.reserves.getNElem();
     // }
-
 }
