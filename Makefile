@@ -21,6 +21,9 @@ OUTPUT_DIR = ./bin
 ## ARCHIVOS DE CLASES: Package Reserves ##
 # Compilación archivo Reserva.class
 ./bin/Reserves/Reserva.class: ./src/Reserves/Reserva.java
+	javac -d $(OUTPUT_DIR) $<
+# Compilación archivo LlistaReserves.class ( depende de Reserva.class )
+./bin/Reserves/LlistaReserves.class: ./src/Reserves/LlistaReserves.java ./bin/Reserves/Reserva.class
 	javac -d $(OUTPUT_DIR) -cp $(CP) $<
 
 ## ARCHIVOS QUE EJECUTAN: Package Entitats ##
@@ -42,6 +45,7 @@ all: ./bin/Entitats/Entitat.class \
 		./bin/Activitats/Activitat.class \
 		./bin/Activitats/Taller.class \
 		./bin/Reserves/Reserva.class \
+		./bin/Reserves/LlistaReserves.class \
 		./bin/UsaEntitat.class \
 		./bin/UsaLlistaEntitats.class \
 		./bin/UsaActivitat.java

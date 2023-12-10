@@ -5,6 +5,7 @@ public class Reserva {
     private int     codi;
     private String  aliesUsuari;
     private String  codiTaller;
+    private byte    valoracio;
     /* ATRIBUTOS: Estaticos */
     // private static int codiIndex = 1000;
 
@@ -51,6 +52,15 @@ public class Reserva {
         this.codiTaller = codiTaller;
     }
 
+    /**
+    * Setter de l'atribut this.valoracio
+    *
+    * @param valoracio Valoracio de l'usuari sobre el Taller
+    */
+    public void setValoracio ( byte valoracio ) {
+        this.valoracio = valoracio;
+    }
+
     /* METODOS: Getters */
     /**
     * Getter del codi de la reserva
@@ -77,6 +87,15 @@ public class Reserva {
     */
     public String getCodiTaller () {
         return this.codiTaller;
+    }
+
+    /**
+    * Getter de la valoracio del Taller
+    *
+    * @return this.valoracio Valoracio de l'usuari sobre el Taller
+    */
+    public byte getValoracio () {
+        return this.valoracio;
     }
 
     /* METODOS: Varios */
