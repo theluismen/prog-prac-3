@@ -42,10 +42,10 @@ OUTPUT_DIR = ./bin
 # Regla que obliga a ir compilando todos los archivos anteriores
 all: ./bin/Entitats/Entitat.class \
 		./bin/Entitats/LlistaEntitats.class \
-		./bin/Activitats/Activitat.class \
-		./bin/Activitats/Taller.class \
 		./bin/Reserves/Reserva.class \
 		./bin/Reserves/LlistaReserves.class \
+		./bin/Activitats/Activitat.class \
+		./bin/Activitats/Taller.class \
 		./bin/UsaEntitat.class \
 		./bin/UsaLlistaEntitats.class \
 		./bin/UsaActivitat.java

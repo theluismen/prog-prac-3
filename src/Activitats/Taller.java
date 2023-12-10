@@ -1,6 +1,7 @@
 package Activitats;
 
 import Entitats.Entitat;
+import Reserves.LlistaReserves;
 
 // Clase Taller ( filla de Activitat )
 public class Taller extends Activitat {
@@ -8,7 +9,7 @@ public class Taller extends Activitat {
     private int hora;
     private int durada; // Mesura en minuts
     private int capacitat;
-    // private LlistaReserves reserves;
+    private LlistaReserves reserves;
 
     /* CONSTRUCTOR */
     public Taller ( String nom, String lloc, int cpostal, int dia, Entitat entitat, int hora, int durada, int capacitat ) {
@@ -16,7 +17,7 @@ public class Taller extends Activitat {
         this.hora      = hora;
         this.durada    = durada;
         this.capacitat = capacitat;
-        // this.reserves  = new LlistaReserves( capacitat );
+        this.reserves  = new LlistaReserves( capacitat );
     }
 
     /* METODOS */
@@ -55,18 +56,18 @@ public class Taller extends Activitat {
     *
     * @return this.reserves.getNElem()
     */
-    // public int getNReservas () {
-    //     return this.reserves.getNElem();
-    // }
+    public int getNReservas () {
+        return this.reserves.getNElem();
+    }
 
     /**
     * Getter del nombre de places lliures.
     *
     * @return places Nombre de places lliures.
     */
-    // public int getNLliures () {
-    //     return this.capacitat - this.reserves.getNElem();
-    // }
+    public int getNLliures () {
+        return this.capacitat - this.reserves.getNElem();
+    }
 
     /* METODOS: Varios */
     public Taller copia () {
