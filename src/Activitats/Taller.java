@@ -51,15 +51,6 @@ public class Taller extends Activitat {
     }
 
     /**
-    * Getter de la capacitat del taller
-    *
-    * @return this.capacitat  Capacitat del taller
-    */
-    public int getCapacitat () {
-        return this.capacitat;
-    }
-
-    /**
     * Getter de les reserves fetes i guardades.
     *
     * @return this.reserves.getNElem()

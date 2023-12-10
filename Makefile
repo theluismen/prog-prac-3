@@ -18,6 +18,11 @@ OUTPUT_DIR = ./bin
 ./bin/Activitats/Taller.class: ./src/Activitats/Taller.java ./bin/Activitats/Activitat.class
 	javac -d $(OUTPUT_DIR) -cp $(CP) $<
 
+## ARCHIVOS DE CLASES: Package Reserves ##
+# Compilación archivo Reserva.class
+./bin/Reserves/Reserva.class: ./src/Reserves/Reserva.java
+	javac -d $(OUTPUT_DIR) -cp $(CP) $<
+
 ## ARCHIVOS QUE EJECUTAN: Package Entitats ##
 # Compilación archivo validador de Entitat
 ./bin/UsaEntitat.class: ./src/Aplicacio/UsaEntitat.java ./bin/Entitats/Entitat.class
@@ -36,6 +41,7 @@ all: ./bin/Entitats/Entitat.class \
 		./bin/Entitats/LlistaEntitats.class \
 		./bin/Activitats/Activitat.class \
 		./bin/Activitats/Taller.class \
+		./bin/Reserves/Reserva.class \
 		./bin/UsaEntitat.class \
 		./bin/UsaLlistaEntitats.class \
 		./bin/UsaActivitat.java
