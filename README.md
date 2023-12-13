@@ -5,7 +5,7 @@
 
 | Nombre | Rol |
 | --- | --- |
-| Jordi López Riba | Director del equipo |
+| Jordi López Riba | Director del proyecto |
 
 - **Equipo de programación**
 
