@@ -30,6 +30,9 @@ OUTPUT_DIR = ./bin
 # Compilación archivo Usuari.class
 ./bin/Usuaris/Usuari.class: ./src/Usuaris/Usuari.java
 	javac -d $(OUTPUT_DIR) $<
+# Compilación archivo LlistaUsuaris.class ( depende de Usuari.class )
+./bin/Usuaris/LlistaUsuaris.class: ./src/Usuaris/LlistaUsuaris.java ./bin/Usuaris/Usuari.class
+	javac -d $(OUTPUT_DIR) -cp $(CP) $<
 
 ## ARCHIVOS QUE EJECUTAN: Package Entitats ##
 # Compilación archivo validador de Entitat
@@ -41,26 +44,31 @@ OUTPUT_DIR = ./bin
 
 ## ARCHIVOS QUE EJECUTAN: Package Activitats ##
 # Compilación archivo validador de Activitat
-./bin/UsaActivitat.java: ./src/Aplicacio/UsaActivitat.java ./bin/Activitats/Activitat.class ./bin/Activitats/Taller.class
+./bin/UsaActivitat.class: ./src/Aplicacio/UsaActivitat.java ./bin/Activitats/Activitat.class ./bin/Activitats/Taller.class
 	javac -d $(OUTPUT_DIR) -cp $(CP) $<
 
 ## ARCHIVOS QUE EJECUTAN: Package Usuaris ##
 # Compilación archivo validador de Usuari
-./bin/UsaUsuari.java: ./src/Aplicacio/UsaUsuari.java ./bin/Usuaris/Usuari.class
+./bin/UsaUsuari.class: ./src/Aplicacio/UsaUsuari.java ./bin/Usuaris/Usuari.class
+	javac -d $(OUTPUT_DIR) -cp $(CP) $<
+# Compilación archivo validador de LlistaEntitats
+./bin/UsaLlistaUsuaris.class: ./src/Aplicacio/UsaLlistaUsuaris.java ./bin/UsaLlistaEntitats.class
 	javac -d $(OUTPUT_DIR) -cp $(CP) $<
 
 # Regla que obliga a ir compilando todos los archivos anteriores
-all: ./bin/Entitats/Entitat.class \
+all: 	./bin/Entitats/Entitat.class \
 		./bin/Entitats/LlistaEntitats.class \
 		./bin/Reserves/Reserva.class \
 		./bin/Reserves/LlistaReserves.class \
 		./bin/Usuaris/Usuari.class \
+		./bin/Usuaris/LlistaUsuaris.class \
 		./bin/Activitats/Activitat.class \
 		./bin/Activitats/Taller.class \
 		./bin/UsaEntitat.class \
 		./bin/UsaLlistaEntitats.class \
-		./bin/UsaUsuari.java \
-		./bin/UsaActivitat.java
+		./bin/UsaUsuari.class \
+		./bin/UsaLlistaUsuaris.class \
+		./bin/UsaActivitat.class \
 
 UsaEntitat: ./bin/UsaEntitat.class
 	java -cp $(CP) $@
@@ -72,6 +80,9 @@ UsaActivitat: ./bin/UsaActivitat.class
 	java -cp $(CP) $@
 
 UsaUsuari: ./bin/UsaEntitat.class
+	java -cp $(CP) $@
+
+UsaLlistaUsuaris: ./bin/UsaLlistaUsuaris.class
 	java -cp $(CP) $@
 
 # Eliminar todos los .class de ./bin/ y directorios
