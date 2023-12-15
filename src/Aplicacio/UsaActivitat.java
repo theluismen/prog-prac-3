@@ -30,7 +30,7 @@ class UsaActivitat {
 
         Taller taller2 = taller.copia();
 
-        }
+
         System.out.println( taller.toString() );
 
         Activitat a = new Activitat("Carreres", "Tarragona", 43400, 13, new Entitat("Redbull", "123456789", "redbull@gmail.com"));
