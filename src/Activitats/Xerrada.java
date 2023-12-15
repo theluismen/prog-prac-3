@@ -1,6 +1,6 @@
 package Activitats;
 
-
+import Entitats.Entitat;
 
 public class Xerrada extends Activitat {
 
@@ -10,8 +10,8 @@ public class Xerrada extends Activitat {
 
 
     /* CONSTRUCTORS */
-    public Xerrada (String nomAutor, String nom, String lloc, int cpostal, int dia){
-    super(nom, lloc, cpostal, dia);
+    public Xerrada (String nomAutor, String nom, String lloc, int cpostal, int dia, Entitat entitat){
+    super(nom, lloc, cpostal, dia, entitat);
     this.nomAutor=nomAutor;
 
     }
@@ -37,6 +37,20 @@ public class Xerrada extends Activitat {
         return nomAutor;
     }
     
+    
+
+   /* METODES: SETTERS */
+
+    /**
+     * Setter de l'atribut this.nomAutor
+     *
+     * @param nomAutor       Nom de l'autor de la xerrada
+     */
+    public void setNomAutor(String nomAutor) {
+        this.nomAutor = nomAutor;
+    }
+
+
     /**
      * Metode que retorna un String que conte les dades del objecte
      * 
