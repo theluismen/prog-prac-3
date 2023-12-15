@@ -1,5 +1,8 @@
 package Activitats;
 
+
+import Entitats.Entitat;
+
 public class Visita extends Activitat{
    /* ATRIBUTS */
     private boolean audioguia;
@@ -19,9 +22,9 @@ public class Visita extends Activitat{
      * @param   dia     Dia de l'activitat
      */
 
-    public Visita ( boolean audioguia, boolean adaptada, String nom, String lloc, int cpostal, int dia ){
+    public Visita ( boolean audioguia, boolean adaptada, String nom, String lloc, int cpostal, int dia, Entitat entitat ){
 
-        super(nom, lloc, cpostal, dia);
+        super(nom, lloc, cpostal, dia, entitat);
         this.audioguia=audioguia;
         this.adaptada=adaptada;
 
