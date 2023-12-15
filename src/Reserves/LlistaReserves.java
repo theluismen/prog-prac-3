@@ -94,4 +94,15 @@ public class LlistaReserves {
     public boolean addReserva ( int codi, String aliesUsuari, String codiTaller ) {
         return this.addReserva( new Reserva(codi, aliesUsuari, codiTaller) );
     }
+
+    /**
+     * Metode mostra informacio dels objectes emmaatzemats.
+     *
+     */
+    public void mostrarReserves ( ) {
+        int i;
+        for ( i = 0; i < this.nElem; i++ ) {
+            System.out.println( this.llista[i].toString() );
+        }
+    }
 }

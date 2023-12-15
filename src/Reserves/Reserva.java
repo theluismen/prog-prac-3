@@ -5,7 +5,7 @@ public class Reserva {
     private int     codi;
     private String  aliesUsuari;
     private String  codiTaller;
-    private byte    valoracio;
+    private int    valoracio;
     /* ATRIBUTOS: Estaticos */
     // private static int codiIndex = 1000;
 
@@ -21,6 +21,22 @@ public class Reserva {
         this.codi        = codi;
         this.aliesUsuari = aliesUsuari;
         this.codiTaller  = codiTaller;
+    }
+
+    /**
+     * Constuctor de la clase Reserva. Amb l'atribut valoracio. Aquest constructor
+     * es emprat pel metode copia().
+     *
+     * @param   codi         Codi de la Reserva
+     * @param   aliesUsuari  Alies del Usuari que fa la reserva
+     * @param   codiTaller   Codi del Taller on l'Usuari fa la reserva
+     * @param   valoracio    Valoracio del Taller on l'Usuari fa la reserva
+     */
+    public Reserva ( int codi, String aliesUsuari, String codiTaller, int valoracio ) {
+        this.codi        = codi;
+        this.aliesUsuari = aliesUsuari;
+        this.codiTaller  = codiTaller;
+        this.valoracio   = valoracio;
     }
 
     /* METODOS*/
@@ -39,7 +55,7 @@ public class Reserva {
      *
      * @param aliesUsuari Alies del Usuari que fa la reserva
      */
-    public void setCodi ( String aliesUsuari ) {
+    public void setAliesUsuari ( String aliesUsuari ) {
         this.aliesUsuari = aliesUsuari;
     }
 
@@ -57,7 +73,7 @@ public class Reserva {
     *
     * @param valoracio Valoracio de l'usuari sobre el Taller
     */
-    public void setValoracio ( byte valoracio ) {
+    public void setValoracio ( int valoracio ) {
         this.valoracio = valoracio;
     }
 
@@ -94,7 +110,7 @@ public class Reserva {
     *
     * @return this.valoracio Valoracio de l'usuari sobre el Taller
     */
-    public byte getValoracio () {
+    public int getValoracio () {
         return this.valoracio;
     }
 
@@ -105,7 +121,7 @@ public class Reserva {
     * @return reserva Copia de la reserva
     */
     public Reserva copia ( ) {
-        return new Reserva ( this.codi, this.aliesUsuari, this.codiTaller );
+        return new Reserva ( this.codi, this.aliesUsuari, this.codiTaller, this.valoracio );
     }
 
     /**
@@ -115,6 +131,6 @@ public class Reserva {
     * @return  String  String que conte informació
     */
     public String toString ( ) {
-        return this.codi + ":" + this.aliesUsuari + ":" + this.codiTaller;
+        return this.codi + ":" + this.aliesUsuari + ":" + this.codiTaller + ":" + this.valoracio;
     }
 }

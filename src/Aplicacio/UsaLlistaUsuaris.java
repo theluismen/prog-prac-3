@@ -1,12 +1,12 @@
 import Usuaris.LlistaUsuaris;
 
-// Clase que valida la clase LlistaEntitats
+// Clase que valida la clase LlistaUsuaris
 public class UsaLlistaUsuaris {
     public static void main ( String[] args ) {
         LlistaUsuaris llista = new LlistaUsuaris( 10 );
         int i = 0;
 
-        // Validar que addEntitat funciona bien
+        // Validar que addUsuari funciona bien
         while ( i < 15 ) {
             System.out.print(i + "  ");
             if ( llista.addUsuari( "perrosanxe23", "perrosanxe@spain.com", 12345 ) ) {

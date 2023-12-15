@@ -47,6 +47,14 @@ OUTPUT_DIR = ./bin
 ./bin/UsaActivitat.class: ./src/Aplicacio/UsaActivitat.java ./bin/Activitats/Activitat.class ./bin/Activitats/Taller.class
 	javac -d $(OUTPUT_DIR) -cp $(CP) $<
 
+## ARCHIVOS QUE EJECUTAN: Package Reserves ##
+# Compilación archivo validador de Reserva
+./bin/UsaReserva.class: ./src/Aplicacio/UsaReserva.java ./bin/Reserves/Reserva.class
+	javac -d $(OUTPUT_DIR) -cp $(CP) $<
+# Compilación archivo validador de LlistaReserves
+./bin/UsaLlistaReserves.class: ./src/Aplicacio/UsaLlistaReserves.java ./bin/Reserves/LlistaReserves.class
+	javac -d $(OUTPUT_DIR) -cp $(CP) $<
+
 ## ARCHIVOS QUE EJECUTAN: Package Usuaris ##
 # Compilación archivo validador de Usuari
 ./bin/UsaUsuari.class: ./src/Aplicacio/UsaUsuari.java ./bin/Usuaris/Usuari.class
@@ -66,17 +74,16 @@ all: 	./bin/Entitats/Entitat.class \
 		./bin/Activitats/Taller.class \
 		./bin/UsaEntitat.class \
 		./bin/UsaLlistaEntitats.class \
+		./bin/UsaReserva.class \
+		./bin/UsaLlistaReserves.class \
 		./bin/UsaUsuari.class \
 		./bin/UsaLlistaUsuaris.class \
-		./bin/UsaActivitat.class \
+		./bin/UsaActivitat.class
 
 UsaEntitat: ./bin/UsaEntitat.class
 	java -cp $(CP) $@
 
 UsaLlistaEntitats: ./bin/UsaLlistaEntitats.class
-	java -cp $(CP) $@
-
-UsaActivitat: ./bin/UsaActivitat.class
 	java -cp $(CP) $@
 
 UsaUsuari: ./bin/UsaEntitat.class
@@ -85,6 +92,14 @@ UsaUsuari: ./bin/UsaEntitat.class
 UsaLlistaUsuaris: ./bin/UsaLlistaUsuaris.class
 	java -cp $(CP) $@
 
+UsaReserva: ./bin/Reserves/Reserva.class
+	java -cp $(CP) $@
+
+UsaLlistaReserves: ./bin/Reserves/LlistaReserves.class
+	java -cp $(CP) $@
+
+UsaActivitat: ./bin/UsaActivitat.class
+	java -cp $(CP) $@
 # Eliminar todos los .class de ./bin/ y directorios
 clean:
 	find $(OUTPUT_DIR)/* -iname *.class | xargs rm -f
