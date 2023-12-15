@@ -6,8 +6,6 @@ public class Reserva {
     private String  aliesUsuari;
     private String  codiTaller;
     private int    valoracio;
-    /* ATRIBUTOS: Estaticos */
-    // private static int codiIndex = 1000;
 
     /* CONSTRUCTOR */
     /**

@@ -4,6 +4,8 @@ public class LlistaReserves {
     /* ATRIBUTOS */
     private int         nElem;
     private Reserva[]   llista;
+    /* ATRIBUTOS: Estaticos */
+    private static int codiIndex = 1000;
 
     /* CONSTRUCTOR */
     /**
@@ -91,15 +93,19 @@ public class LlistaReserves {
      * @param   aliesUsuari  Alies del Usuari que fa la reserva
      * @param   codiTaller   Codi del Taller on l'Usuari fa la reserva
      */
-    public boolean addReserva ( int codi, String aliesUsuari, String codiTaller ) {
-        return this.addReserva( new Reserva(codi, aliesUsuari, codiTaller) );
+    public boolean addReserva ( String aliesUsuari, String codiTaller ) {
+        boolean afegit = this.addReserva( new Reserva(codiIndex, aliesUsuari, codiTaller) );
+        if ( afegit ) {
+            codiIndex ++;
+        }
+        return afegit;
     }
 
     /**
      * Metode mostra informacio dels objectes emmaatzemats.
      *
      */
-    public void mostrarReserves ( ) {
+    public void mostrar ( ) {
         int i;
         for ( i = 0; i < this.nElem; i++ ) {
             System.out.println( this.llista[i].toString() );

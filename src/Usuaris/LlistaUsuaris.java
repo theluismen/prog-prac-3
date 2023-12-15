@@ -99,7 +99,7 @@ public class LlistaUsuaris {
      * Metode mostra informacio dels objectes emmaatzemats.
      *
      */
-    public void mostrarUsuaris ( ) {
+    public void mostrar ( ) {
         int i;
         for ( i = 0; i < this.nElem; i++ ) {
             System.out.println( this.llista[i].toString() );

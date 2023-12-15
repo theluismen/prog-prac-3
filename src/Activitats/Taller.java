@@ -2,6 +2,7 @@ package Activitats;
 
 import Entitats.Entitat;
 import Reserves.LlistaReserves;
+import Usuaris.Usuari;
 
 // Clase Taller ( filla de Activitat )
 public class Taller extends Activitat {
@@ -70,8 +71,24 @@ public class Taller extends Activitat {
     }
 
     /* METODOS: Varios */
-    public Taller copia () {
-        return new Taller ( this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getEntitat().copia(), this.hora, this.durada, this.capacitat);
+    /**
+    * Metode realitza una reserva al taller actual.
+    *
+    * @param  usuari  Objecte Usuari al que se li fa la reserva
+    * @return afegit  Si s'ha afegit o no
+    */
+    public boolean ferReserva ( Usuari usuari ) {
+        return this.reserves.addReserva( usuari.getAlies(), super.getCodi() );
+    }
+
+    /**
+    * Metode realitza una reserva al taller actual.
+    *
+    * @param  aliesUsuari  Alies del usuari al que se li fa la reserva
+    * @return afegit  Si s'ha afegit o no
+    */
+    public boolean ferReserva ( String aliesUsuari ) {
+        return this.reserves.addReserva( aliesUsuari, super.getCodi() );
     }
 
     /**
@@ -82,4 +99,21 @@ public class Taller extends Activitat {
     public String toString () {
         return super.toString() + ":" + this.hora + ":" + this.durada + ":" + this.capacitat;
     }
+
+    /**
+    * Metode que retorna una copia de l'instancia
+    *
+    * @return entitat  Copia de l'entitat
+    */
+    public Taller copia () {
+        return new Taller ( this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getEntitat().copia(), this.hora, this.durada, this.capacitat);
+    }
+
+    /**
+     * Metode mostra informacio dels objectes emmaatzemats.
+     *
+     */
+     public void mostrarReserves() {
+         this.reserves.mostrar();
+     }
 }

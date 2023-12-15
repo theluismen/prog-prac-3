@@ -9,7 +9,7 @@ public class UsaLlistaReserves {
         // Validar que addReserva funciona bien
         while ( i < 15 ) {
             System.out.print(i + "  ");
-            if ( llista.addReserva( 1000 + i, "perrosanxe", "TAL" + String.valueOf(100 + i) ) ) {
+            if ( llista.addReserva( "perrosanxe", "TAL" + String.valueOf(100 + i) ) ) {
                 System.out.println( "Afegit ->" + llista.getReserva(i).toString() );
             } else {
                 System.out.println( "No s'ha afegit. NO HI HA ESPAI" );
@@ -17,6 +17,6 @@ public class UsaLlistaReserves {
             i++;
         }
 
-        llista.mostrarReserves();
+        llista.mostrar();
     }
 }

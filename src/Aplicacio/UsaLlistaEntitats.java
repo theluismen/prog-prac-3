@@ -17,6 +17,6 @@ public class UsaLlistaEntitats {
             i++;
         }
 
-        llista.mostrarEntitats();
+        llista.mostrar();
     }
 }

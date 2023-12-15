@@ -17,6 +17,6 @@ public class UsaLlistaUsuaris {
             i++;
         }
 
-        llista.mostrarUsuaris();
+        llista.mostrar();
     }
 }
