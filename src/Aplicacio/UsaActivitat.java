@@ -18,7 +18,7 @@ class UsaActivitat {
             "Taller LEGO", "Reus", 43205, 25,
             new Entitat ("Apple", "660083024", "apple@apple.com"), 17, 30, 35
         );
-        
+
         taller.mostrarReserves();
         taller.ferReserva( new Usuari ("theluismen","fana@gmail.com",12345) );
         taller.ferReserva( new Usuari ("sementerio","sida@gmail.com",12345) );
@@ -30,9 +30,8 @@ class UsaActivitat {
 
         Taller taller2 = taller.copia();
 
+        }
         System.out.println( taller.toString() );
-    }
-
 
         Activitat a = new Activitat("Carreres", "Tarragona", 43400, 13, new Entitat("Redbull", "123456789", "redbull@gmail.com"));
         Xerrada x = new Xerrada("Elon Musk", "Tecnologia", "Reus", 43500, 23, new Entitat("SpaceX", "98765431", "spacex@gmail.com"));
@@ -60,5 +59,5 @@ class UsaActivitat {
         System.out.println("Codi: "+ v.getCodi());
         System.out.println("Codi: "+ a.getCodi());
     }
-    
+
 }

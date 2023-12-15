@@ -17,6 +17,12 @@ OUTPUT_DIR = ./bin
 # Compilación archivo Taller.class ( clase hija de Activitat.class )
 ./bin/Activitats/Taller.class: ./src/Activitats/Taller.java ./bin/Activitats/Activitat.class
 	javac -d $(OUTPUT_DIR) -cp $(CP) $<
+# Compilación archivo Visita.class ( clase hija de Activitat.class )
+./bin/Activitats/Visita.class: ./src/Activitats/Visita.java ./bin/Activitats/Activitat.class
+	javac -d $(OUTPUT_DIR) -cp $(CP) $<
+# Compilación archivo Xerrada.class ( clase hija de Activitat.class )
+./bin/Activitats/Xerrada.class: ./src/Activitats/Xerrada.java ./bin/Activitats/Activitat.class
+	javac -d $(OUTPUT_DIR) -cp $(CP) $<
 
 ## ARCHIVOS DE CLASES: Package Reserves ##
 # Compilación archivo Reserva.class
@@ -72,6 +78,8 @@ all: 	./bin/Entitats/Entitat.class \
 		./bin/Usuaris/LlistaUsuaris.class \
 		./bin/Activitats/Activitat.class \
 		./bin/Activitats/Taller.class \
+		./bin/Activitats/Xerrada.class \
+		./bin/Activitats/Visita.class \
 		./bin/UsaEntitat.class \
 		./bin/UsaLlistaEntitats.class \
 		./bin/UsaReserva.class \
