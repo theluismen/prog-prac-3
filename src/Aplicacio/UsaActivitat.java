@@ -2,6 +2,8 @@ import Activitats.Activitat;
 import Activitats.Taller;
 import Entitats.Entitat;
 import Usuaris.Usuari;
+import Activitats.Visita;
+import Activitats.Xerrada;
 
 // Clase que valida la clase LlistaEntitats
 class UsaActivitat {
