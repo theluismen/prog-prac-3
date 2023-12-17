@@ -23,6 +23,9 @@ OUTPUT_DIR = ./bin
 # Compilación archivo Xerrada.class ( clase hija de Activitat.class )
 ./bin/Activitats/Xerrada.class: ./src/Activitats/Xerrada.java ./bin/Activitats/Activitat.class
 	javac -d $(OUTPUT_DIR) -cp $(CP) $<
+# Compilación archivo LlistaReserves.class ( depende de Reserva.class )
+./bin/Activitats/LlistaActivitats.class: ./src/Activitats/LlistaActivitats.java ./bin/Activitats/Activitat.class
+	javac -d $(OUTPUT_DIR) -cp $(CP) $<
 
 ## ARCHIVOS DE CLASES: Package Reserves ##
 # Compilación archivo Reserva.class
@@ -80,6 +83,7 @@ all: 	./bin/Entitats/Entitat.class \
 		./bin/Activitats/Taller.class \
 		./bin/Activitats/Xerrada.class \
 		./bin/Activitats/Visita.class \
+		./bin/Activitats/LlistaActivitats.class \
 		./bin/UsaEntitat.class \
 		./bin/UsaLlistaEntitats.class \
 		./bin/UsaReserva.class \
@@ -108,6 +112,7 @@ UsaLlistaReserves: ./bin/Reserves/LlistaReserves.class
 
 UsaActivitat: ./bin/UsaActivitat.class
 	java -cp $(CP) $@
+
 # Eliminar todos los .class de ./bin/ y directorios
 clean:
 	find $(OUTPUT_DIR)/* -iname *.class | xargs rm -f

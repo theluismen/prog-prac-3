@@ -158,4 +158,13 @@ public class Activitat {
      return this.codi + ":" + this.nom + ":" + this.lloc + ":" +
             this.cpostal + ":" + this.dia + ":" + this.entitat.getNom();
     }
+
+    /**
+    * Metode que retorna una copia de l'instancia
+    *
+    * @return entitat  Copia de l'activitat
+    */
+    public Activitat copia () {
+        return new Activitat ( this.nom, this.lloc, this.cpostal, this.dia, this.entitat );
+    }
 }
