@@ -17,6 +17,6 @@ public class UsaLlistaEntitats {
             i++;
         }
 
-        llista.mostrar();
+        System.out.println( llista.entitats() );
     }
 }

@@ -17,6 +17,6 @@ public class UsaLlistaReserves {
             i++;
         }
 
-        llista.mostrar();
+        System.out.println( llista.reserves() );
     }
 }

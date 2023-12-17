@@ -10,18 +10,17 @@ public class Xerrada extends Activitat {
 
 
     /* CONSTRUCTORS */
-    public Xerrada (String nomAutor, String nom, String lloc, int cpostal, int dia, Entitat entitat){
-    super(nom, lloc, cpostal, dia, entitat);
-    this.nomAutor=nomAutor;
-
+    public Xerrada ( String nomAutor, String nom, String lloc, int cpostal, int dia, Entitat entitat ){
+        super(nom, lloc, cpostal, dia, entitat);
+        this.nomAutor = nomAutor;
     }
-    
+
     /* METODES */
     /* METODES: getters */
 
-    /** 
+    /**
      * getter de l'hora de les xerrades (sempre les 17)
-     * 
+     *
      * @return hora     hora de la xerrada
      */
     public int getHora() {
@@ -30,14 +29,14 @@ public class Xerrada extends Activitat {
 
     /**
      * getter de la persona que fa la xerrada
-     * 
+     *
      * @return nomAutor     Autor de la xerrada
      */
     public String getNomAutor() {
         return nomAutor;
     }
-    
-    
+
+
 
    /* METODES: SETTERS */
 
@@ -53,13 +52,11 @@ public class Xerrada extends Activitat {
 
     /**
      * Metode que retorna un String que conte les dades del objecte
-     * 
+     *
      * @return nomAutor     Autor de la xerrada
      */
-    @Override
+
     public String toString() {
         return "Xerrada [hora=" + hora + ", nomAutor=" + nomAutor + super.toString()+"]";
     }
-
-   
 }

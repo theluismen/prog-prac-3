@@ -55,6 +55,9 @@ OUTPUT_DIR = ./bin
 # Compilación archivo validador de Activitat
 ./bin/UsaActivitat.class: ./src/Aplicacio/UsaActivitat.java ./bin/Activitats/Activitat.class ./bin/Activitats/Taller.class
 	javac -d $(OUTPUT_DIR) -cp $(CP) $<
+# Compilación archivo validador de LlistaActivitats
+./bin/UsaLlistaActivitats.class: ./src/Aplicacio/UsaLlistaActivitats.java ./bin/Activitats/LlistaActivitats.class
+	javac -d $(OUTPUT_DIR) -cp $(CP) $<
 
 ## ARCHIVOS QUE EJECUTAN: Package Reserves ##
 # Compilación archivo validador de Reserva
@@ -90,7 +93,8 @@ all: 	./bin/Entitats/Entitat.class \
 		./bin/UsaLlistaReserves.class \
 		./bin/UsaUsuari.class \
 		./bin/UsaLlistaUsuaris.class \
-		./bin/UsaActivitat.class
+		./bin/UsaActivitat.class \
+		./bin/UsaLlistaActivitats.class
 
 UsaEntitat: ./bin/UsaEntitat.class
 	java -cp $(CP) $@
@@ -111,6 +115,9 @@ UsaLlistaReserves: ./bin/Reserves/LlistaReserves.class
 	java -cp $(CP) $@
 
 UsaActivitat: ./bin/UsaActivitat.class
+	java -cp $(CP) $@
+
+UsaLlistaActivitats: ./bin/UsaLlistaActivitats.class
 	java -cp $(CP) $@
 
 # Eliminar todos los .class de ./bin/ y directorios

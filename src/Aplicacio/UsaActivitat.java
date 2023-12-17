@@ -19,12 +19,11 @@ class UsaActivitat {
             new Entitat ("Apple", "660083024", "apple@apple.com"), 17, 30, 35
         );
 
-        taller.mostrarReserves();
+        System.out.println( taller.reserves() );
         taller.ferReserva( new Usuari ("theluismen","fana@gmail.com",12345) );
         taller.ferReserva( new Usuari ("sementerio","sida@gmail.com",12345) );
         taller.ferReserva( new Usuari ("manolo7223","mari@gmail.com",12345) );
-        taller.mostrarReserves();
-        System.out.println( );
+        System.out.println( taller.reserves() );
 
         System.out.println( taller.toString() );
 

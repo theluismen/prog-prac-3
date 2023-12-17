@@ -102,13 +102,16 @@ public class LlistaReserves {
     }
 
     /**
-     * Metode mostra informacio dels objectes emmaatzemats.
+     * Metode que retorna informacio del tots
+     * objectes emmaatzemats.
      *
      */
-    public void mostrar ( ) {
+    public String reserves ( ) {
+        String all = new String("");
         int i;
         for ( i = 0; i < this.nElem; i++ ) {
-            System.out.println( this.llista[i].toString() );
+            all += this.llista[i].toString() + "\n";
         }
+        return all;
     }
 }

@@ -113,7 +113,7 @@ public class Taller extends Activitat {
      * Metode mostra informacio dels objectes emmaatzemats.
      *
      */
-     public void mostrarReserves() {
-         this.reserves.mostrar();
+     public String reserves () {
+         return this.reserves.reserves();
      }
 }

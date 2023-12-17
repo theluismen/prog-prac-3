@@ -31,6 +31,23 @@ public class Activitat {
         this.entitat = entitat.copia();
     }
 
+    /**
+     * Constuctor de la clase Activitat. Con codigo de activitat
+     * @param   codi    Codi de l'activitat
+     * @param   nom     Nom de l'activitat
+     * @param   lloc    Lloc de l'activitat
+     * @param   cpostal Codi Postal de l'activitat
+     * @param   dia     Dia de l'activitat
+     */
+    public Activitat ( String codi, String nom, String lloc, int cpostal, int dia, Entitat entitat ) {
+        this.codi    = codi;
+        this.nom     = nom;
+        this.lloc    = lloc;
+        this.cpostal = cpostal;
+        this.dia     = dia;
+        this.entitat = entitat.copia();
+    }
+
     /* METODOS */
     /* METODOS: Setters */
     /**
@@ -143,9 +160,9 @@ public class Activitat {
     * @return  codi    El codi de la activitat
      */
     private String crearCodi ( String nom ) {
-     String codi = nom.substring(0, 3) + Integer.toString( codiIndex );
-     codiIndex ++;
-     return codi;
+        String codi = nom.substring(0, 3) + Integer.toString( codiIndex );
+        codiIndex ++;
+        return codi;
     }
 
     /**
@@ -155,7 +172,7 @@ public class Activitat {
     * @return  String  String que conte informació
     */
     public String toString ( ) {
-     return this.codi + ":" + this.nom + ":" + this.lloc + ":" +
+        return this.codi + ":" + this.nom + ":" + this.lloc + ":" +
             this.cpostal + ":" + this.dia + ":" + this.entitat.getNom();
     }
 
@@ -165,6 +182,6 @@ public class Activitat {
     * @return entitat  Copia de l'activitat
     */
     public Activitat copia () {
-        return new Activitat ( this.nom, this.lloc, this.cpostal, this.dia, this.entitat );
+        return new Activitat ( this.codi, this.nom, this.lloc, this.cpostal, this.dia, this.entitat );
     }
 }

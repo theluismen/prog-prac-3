@@ -97,4 +97,18 @@ public class LlistaActivitats {
     public boolean addActivitat ( String nom, String lloc, int cpostal, int dia, Entitat entitat ) {
         return this.addActivitat( new Activitat ( nom, lloc, cpostal, dia, entitat ) );
     }
+
+    /**
+     * Metode que retorna informacio del tots
+     *  objectes emmaatzemats.
+     *
+     */
+    public String activitats ( ) {
+        String all = new String("");
+        int i;
+        for ( i = 0; i < this.nElem; i++ ) {
+            all += this.llista[i].toString() + "\n";
+        }
+        return all;
+    }
 }
