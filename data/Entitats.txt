@@ -1,0 +1,15 @@
+EmpresaX;655432198;info@empresax.com
+SolucionesGlobalesS.L.;612345678;contact@solucionesglobales.com
+ProveedorInternacional;678901234;info@proveedorinternacional.com
+VisionaryEnterprises;654789012;contact@visionaryenterprises.com
+InnovateTechSolutions;611223344;info@innovatetech.com
+QuantumDynamicsLtd.;666555444;info@quantumdynamics.com
+SummitSuppliers;677889900;info@summitsuppliers.com
+NexusPartners;622233344;info@nexuspartners.com
+BlueSkyInnovations;688877766;info@blueskyinnovations.com
+PrimeSuppliersInc.;699988877;info@primesuppliers.com
+SolucionesDinámicas;655443322;info@solucionesdinamicas.com
+ProTechServices;612345678;info@protechservices.com
+GalaxyEnterprises;678901234;info@galaxyenterprises.com
+SmartTechCorp.;654789012;info@smarttechcorp.com
+AlphaSuppliers;611223344;info@alphasuppliers.com

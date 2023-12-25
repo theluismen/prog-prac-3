@@ -75,6 +75,11 @@ OUTPUT_DIR = ./bin
 ./bin/UsaLlistaUsuaris.class: ./src/Aplicacio/UsaLlistaUsuaris.java ./bin/Usuaris/LlistaUsuaris.class
 	javac -d $(OUTPUT_DIR) -cp $(CP) $<
 
+## ARCHIVOS QUE EJECUTAN: Clase Aplicacio ##
+./bin/UsaApp.class: ./src/Aplicacio/UsaApp.java
+	javac -d $(OUTPUT_DIR) -cp $(CP) $<
+./bin/ArxiusApp.class: ./src/Aplicacio/ArxiusApp.java
+	javac -d $(OUTPUT_DIR) $<
 # Regla que obliga a ir compilando todos los archivos anteriores
 all: 	./bin/Entitats/Entitat.class \
 		./bin/Entitats/LlistaEntitats.class \
@@ -94,7 +99,9 @@ all: 	./bin/Entitats/Entitat.class \
 		./bin/UsaUsuari.class \
 		./bin/UsaLlistaUsuaris.class \
 		./bin/UsaActivitat.class \
-		./bin/UsaLlistaActivitats.class
+		./bin/UsaLlistaActivitats.class \
+		./bin/ArxiusApp.class \
+		./bin/UsaApp.class
 
 UsaEntitat: ./bin/UsaEntitat.class
 	java -cp $(CP) $@
@@ -119,6 +126,11 @@ UsaActivitat: ./bin/UsaActivitat.class
 
 UsaLlistaActivitats: ./bin/UsaLlistaActivitats.class
 	java -cp $(CP) $@
+
+UsaApp: ./bin/UsaApp.class
+	@ java -cp $(CP) $@
+
+app: UsaApp
 
 # Eliminar todos los .class de ./bin/ y directorios
 clean:
