@@ -5,7 +5,7 @@ public class Reserva {
     private int     codi;
     private String  aliesUsuari;
     private String  codiTaller;
-    private int    valoracio;
+    private int     valoracio;
 
     /* CONSTRUCTOR */
     /**
@@ -19,6 +19,7 @@ public class Reserva {
         this.codi        = codi;
         this.aliesUsuari = aliesUsuari;
         this.codiTaller  = codiTaller;
+        this.valoracio   = 0;
     }
 
     /**
@@ -129,6 +130,6 @@ public class Reserva {
     * @return  String  String que conte informació
     */
     public String toString ( ) {
-        return this.codi + ":" + this.aliesUsuari + ":" + this.codiTaller + ":" + this.valoracio;
+        return String.join(":", String.valueOf(this.codi), this.aliesUsuari, this.codiTaller, String.valueOf(this.valoracio));
     }
 }

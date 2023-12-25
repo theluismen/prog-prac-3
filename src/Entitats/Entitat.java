@@ -87,7 +87,7 @@ public class Entitat {
     * @return  String  String que conte informació
     */
     public String toString ( ) {
-        return new String ( this.nom + ":" + this.telf + ":" + this.correu );
+        return String.join(":", this.nom, this.telf, this.correu );
     }
 
     /**

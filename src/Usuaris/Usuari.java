@@ -79,21 +79,21 @@ public class Usuari {
 
     /* METODOS: Varios */
     /**
-    * Metode que retorna un String que conte informació
-    * de l'objecte
-    *
-    * @return  String  String que conte informació
-    */
-    public String toString ( ) {
-        return new String ( this.alies + ":" + this.correu + ":" + this.cpostal );
-    }
-
-    /**
     * Metode que retorna una copia de l'instancia
     *
     * @return entitat  Copia de l'entitat
     */
     public Usuari copia ( ) {
         return new Usuari ( this.alies, this.correu, this.cpostal );
+    }
+
+    /**
+    * Metode que retorna un String que conte informació
+    * de l'objecte
+    *
+    * @return  String  String que conte informació
+    */
+    public String toString ( ) {
+        return String.join(":", this.alies, this.correu, String.valueOf(this.cpostal));
     }
 }

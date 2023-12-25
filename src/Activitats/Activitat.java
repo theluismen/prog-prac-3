@@ -172,8 +172,7 @@ public class Activitat {
     * @return  String  String que conte informació
     */
     public String toString ( ) {
-        return this.codi + ":" + this.nom + ":" + this.lloc + ":" +
-            this.cpostal + ":" + this.dia + ":" + this.entitat.getNom();
+        return String.join(":", this.codi, this.nom, this.lloc, String.valueOf(this.cpostal), String.valueOf(this.dia), this.entitat.getNom());
     }
 
     /**

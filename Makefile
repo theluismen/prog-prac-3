@@ -53,7 +53,7 @@ OUTPUT_DIR = ./bin
 
 ## ARCHIVOS QUE EJECUTAN: Package Activitats ##
 # Compilación archivo validador de Activitat
-./bin/UsaActivitat.class: ./src/Aplicacio/UsaActivitat.java ./bin/Activitats/Activitat.class ./bin/Activitats/Taller.class
+./bin/UsaActivitat.class: ./src/Aplicacio/UsaActivitat.java ./bin/Activitats/Activitat.class ./bin/Activitats/Taller.class ./bin/Activitats/Visita.class ./bin/Activitats/Xerrada.class
 	javac -d $(OUTPUT_DIR) -cp $(CP) $<
 # Compilación archivo validador de LlistaActivitats
 ./bin/UsaLlistaActivitats.class: ./src/Aplicacio/UsaLlistaActivitats.java ./bin/Activitats/LlistaActivitats.class
