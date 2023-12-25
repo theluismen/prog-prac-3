@@ -72,7 +72,7 @@ OUTPUT_DIR = ./bin
 ./bin/UsaUsuari.class: ./src/Aplicacio/UsaUsuari.java ./bin/Usuaris/Usuari.class
 	javac -d $(OUTPUT_DIR) -cp $(CP) $<
 # Compilación archivo validador de LlistaEntitats
-./bin/UsaLlistaUsuaris.class: ./src/Aplicacio/UsaLlistaUsuaris.java ./bin/UsaLlistaEntitats.class
+./bin/UsaLlistaUsuaris.class: ./src/Aplicacio/UsaLlistaUsuaris.java ./bin/Usuaris/LlistaUsuaris.class
 	javac -d $(OUTPUT_DIR) -cp $(CP) $<
 
 # Regla que obliga a ir compilando todos los archivos anteriores
