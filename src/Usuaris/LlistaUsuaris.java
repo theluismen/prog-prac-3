@@ -1,4 +1,4 @@
-package Usuaris;
+package bin.Usuaris;
 
 public class LlistaUsuaris {
     /* ATRIBUTOS */

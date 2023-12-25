@@ -1,5 +1,7 @@
-import Activitats.*;
-import Entitats.Entitat;
+package bin.Aplicacio;
+
+import bin.Activitats.*;
+import bin.Entitats.Entitat;
 
 public class UsaLlistaActivitats {
     public static void main ( String args[] ) {

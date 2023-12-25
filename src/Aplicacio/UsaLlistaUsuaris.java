@@ -1,4 +1,6 @@
-import Usuaris.LlistaUsuaris;
+package bin.Aplicacio;
+
+import bin.Usuaris.LlistaUsuaris;
 
 // Clase que valida la clase LlistaUsuaris
 public class UsaLlistaUsuaris {

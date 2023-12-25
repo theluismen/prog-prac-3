@@ -1,4 +1,6 @@
-import Entitats.LlistaEntitats;
+package bin.Aplicacio;
+
+import bin.Entitats.LlistaEntitats;
 
 // Clase que valida la clase LlistaEntitats
 public class UsaLlistaEntitats {

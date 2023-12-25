@@ -1,4 +1,6 @@
-import Usuaris.Usuari;
+package bin.Aplicacio;
+
+import bin.Usuaris.Usuari;
 
 public class UsaUsuari {
     public static void main ( String args[] ) {

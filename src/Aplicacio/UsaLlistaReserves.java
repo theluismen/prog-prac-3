@@ -1,4 +1,6 @@
-import Reserves.LlistaReserves;
+package bin.Aplicacio;
+
+import bin.Reserves.LlistaReserves;
 
 // Clase que valida la clase LlistaUsuaris
 public class UsaLlistaReserves {

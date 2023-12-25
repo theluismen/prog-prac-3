@@ -1,9 +1,11 @@
-import Activitats.Activitat;
-import Activitats.Taller;
-import Entitats.Entitat;
-import Usuaris.Usuari;
-import Activitats.Visita;
-import Activitats.Xerrada;
+package bin.Aplicacio;
+
+import bin.Activitats.Activitat;
+import bin.Activitats.Taller;
+import bin.Entitats.Entitat;
+import bin.Usuaris.Usuari;
+import bin.Activitats.Visita;
+import bin.Activitats.Xerrada;
 
 // Clase que valida la clase LlistaEntitats
 class UsaActivitat {

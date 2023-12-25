@@ -1,4 +1,4 @@
-package Reserves;
+package bin.Reserves;
 
 public class LlistaReserves {
     /* ATRIBUTOS */

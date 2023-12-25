@@ -1,6 +1,6 @@
-package Activitats;
+package bin.Activitats;
 
-import Entitats.Entitat;
+import bin.Entitats.Entitat;
 
 public class Xerrada extends Activitat {
 

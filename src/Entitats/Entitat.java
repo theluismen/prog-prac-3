@@ -1,4 +1,4 @@
-package Entitats;
+package bin.Entitats;
 
 public class Entitat {
     /* ATRIBUTOS */

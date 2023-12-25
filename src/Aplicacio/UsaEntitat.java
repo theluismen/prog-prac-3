@@ -1,4 +1,6 @@
-import Entitats.Entitat;
+package bin.Aplicacio;
+
+import bin.Entitats.Entitat;
 
 // Clase que valida la clase Entitat
 public class UsaEntitat {

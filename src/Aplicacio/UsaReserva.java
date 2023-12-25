@@ -1,4 +1,6 @@
-import Reserves.Reserva;
+package bin.Aplicacio;
+
+import bin.Reserves.Reserva;
 
 public class UsaReserva {
     public static void main ( String args[] ) {

@@ -1,8 +1,8 @@
-package Activitats;
+package bin.Activitats;
 
-import Entitats.Entitat;
-import Reserves.LlistaReserves;
-import Usuaris.Usuari;
+import bin.Entitats.Entitat;
+import bin.Reserves.LlistaReserves;
+import bin.Usuaris.Usuari;
 
 // Clase Taller ( filla de Activitat )
 public class Taller extends Activitat {

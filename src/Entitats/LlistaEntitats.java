@@ -1,4 +1,6 @@
-package Entitats;
+package bin.Entitats;
+
+// import bin.Entitats.Entitat;
 
 public class LlistaEntitats {
     /* ATRIBUTOS */

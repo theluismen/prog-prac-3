@@ -1,16 +1,16 @@
-package App;
+package bin.Aplicacio;
 
-import Entitats.LlistaEntitats;
+import bin.Entitats.LlistaEntitats;
 import java.io.*;
 
-public class UsaApp {
+public class App {
     private static void carregarEntitats ( final String filename, LlistaEntitats llista ) {
         BufferedReader br;
         String[] lineInfo;
         String line;
         String nom, telf, correu; // Informacio de la entitat llegida
         try {
-            br = new BufferedReader( new FileReader(  "../data/Entitats.txt") );
+            br = new BufferedReader( new FileReader( filename ) );
             line = br.readLine();   // Llegir linia
             while ( line != null && ! llista.llistaPlena() ) {
                 lineInfo = line.split(ArxiusApp.ARXIU_DELIMITER);
