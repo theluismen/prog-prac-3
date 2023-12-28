@@ -3,6 +3,7 @@ package bin.Aplicacio;
 import java.io.*;
 import bin.Entitats.LlistaEntitats;
 import bin.Usuaris.LlistaUsuaris;
+import bin.Reserves.LlistaReserves;
 
 public class App {
     private static void carregarEntitats ( final String filename, LlistaEntitats llista ) {
@@ -56,6 +57,32 @@ public class App {
         }
     }
 
+    private static void carregarReserves  ( final String filename, LlistaReserves llista ) {
+        BufferedReader br; String line;
+        String[] lineInfo;
+        int codi; String aliesUsuari, coditaller;  // Informacio del Usuari llegit
+        try {
+            br = new BufferedReader( new FileReader( filename ) );
+            line = br.readLine();   // Llegir linia
+            while ( line != null && ! llista.llistaPlena() ) {
+                lineInfo = line.split(ArxiusApp.ARXIU_DELIMITER);
+                /* Guardar informacio en variables ( comoditat ) */
+                codi    = Integer.parseInt(lineInfo[0]);
+                aliesUsuari   = lineInfo[1];
+                coditaller  = lineInfo[2];
+                /* Afegir una nova entitat amb la informacio llegida */
+                llista.addReserva(codi, aliesUsuari, coditaller);
+                /* Tornar a Llegir linia */
+                line = br.readLine();
+            }
+            br.close();
+        } catch ( FileNotFoundException e ) {
+            System.out.println( e.getMessage() );
+        } catch ( IOException e ) {
+            System.out.println( e.getMessage() );
+        }
+    }
+
     public static void main ( String[] args ) {
         LlistaEntitats entitats = new LlistaEntitats(10);
         carregarEntitats(ArxiusApp.ARXIU_ENTITATS, entitats);
@@ -67,5 +94,10 @@ public class App {
         carregarUsuaris(ArxiusApp.ARXIU_USUARIS, usuaris);
         System.out.println(usuaris.usuaris());
 
+        System.out.println("\n\n");
+
+        LlistaReserves reserves = new LlistaReserves(10);
+        carregarReserves(ArxiusApp.ARXIU_RESERVES, reserves);
+        System.out.println(reserves.reserves());
     }
 }
