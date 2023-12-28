@@ -1,0 +1,15 @@
+100;perrosanxe;XER100
+101;ggquim;PRA101
+102;marsunzo;ZUN102
+103;florijas;FLO103
+104;kilopara;KLP104
+105;trixizon;TRX105
+106;jumpardo;JMP106
+107;quimball;QMB107
+108;xiopanza;XPA108
+109;zorflama;ZRF109
+110;giraphy;GRH110
+111;plixanto;PLX111
+112;wazzleby;WZB112
+113;splendoro;SPL113
+114;xylority;XLT114
