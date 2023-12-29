@@ -12,13 +12,13 @@ class UsaActivitat {
     public static void main ( String[] args ) {
         Activitat activitat = new Activitat (
             "Taller LEGO", "Tarragona", 43205, 25,
-            new Entitat ("Apple", "660083024", "apple@apple.com")
+            (new Entitat ("Apple", "660083024", "apple@apple.com")).getNom()
         );
         System.out.println( activitat.toString() );
 
         Taller taller = new Taller (
             "Taller LEGO", "Reus", 43205, 25,
-            new Entitat ("Apple", "660083024", "apple@apple.com"), 17, 30, 35
+            (new Entitat ("Apple", "660083024", "apple@apple.com")).getNom(), 17, 30, 35
         );
 
         System.out.println( taller.reserves() );
@@ -34,9 +34,9 @@ class UsaActivitat {
 
         System.out.println( taller.toString() );
 
-        Activitat a = new Activitat("Carreres", "Tarragona", 43400, 13, new Entitat("Redbull", "123456789", "redbull@gmail.com"));
-        Xerrada x = new Xerrada("Elon Musk", "Tecnologia", "Reus", 43500, 23, new Entitat("SpaceX", "98765431", "spacex@gmail.com"));
-        Visita v = new Visita(true,true, "Fabricacio", "lleida", 43700, 18, new Entitat("Mahle", "456123789", "mahle@gmail.com"));
+        Activitat a = new Activitat("Carreres", "Tarragona", 43400, 13, (new Entitat("Redbull", "123456789", "redbull@gmail.com")).getNom());
+        Xerrada x = new Xerrada("Elon Musk", "Tecnologia", "Reus", 43500, 23, (new Entitat("SpaceX", "98765431", "spacex@gmail.com")).getNom());
+        Visita v = new Visita(true,true, "Fabricacio", "lleida", 43700, 18, (new Entitat("Mahle", "456123789", "mahle@gmail.com")).getNom());
 
         System.out.println(a.toString());
         System.out.println(x.toString());

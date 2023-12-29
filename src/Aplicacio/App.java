@@ -4,6 +4,8 @@ import java.io.*;
 import bin.Entitats.LlistaEntitats;
 import bin.Usuaris.LlistaUsuaris;
 import bin.Reserves.LlistaReserves;
+import bin.Activitats.LlistaActivitats;
+
 public class App {
     private static void carregarEntitats ( final String filename, LlistaEntitats llista ) {
         BufferedReader br; String line;
@@ -81,21 +83,28 @@ public class App {
             System.out.println( e.getMessage() );
         }
     }
+
+    private static void carregarActivitats ( final String filename, LlistaActivitats llista ) {
+        BufferedReader br; String line;
+        String[] lineInfo;
+
+    }
+
     public static void main ( String[] args ) {
         LlistaEntitats entitats = new LlistaEntitats(10);
         carregarEntitats(ArxiusApp.ARXIU_ENTITATS, entitats);
-        System.out.println(entitats.entitats());
+        System.out.println(" <= ENTITATS => \n" + entitats.entitats());
 
-        System.out.println("\n\n");
+        System.out.println();
 
         LlistaUsuaris usuaris = new LlistaUsuaris(10);
         carregarUsuaris(ArxiusApp.ARXIU_USUARIS, usuaris);
-        System.out.println(usuaris.usuaris());
+        System.out.println(" <= USUARIS => \n" + usuaris.usuaris());
 
-        System.out.println("\n\n");
+        System.out.println();
 
         LlistaReserves reserves = new LlistaReserves(10);
         carregarReserves(ArxiusApp.ARXIU_RESERVES, reserves);
-        System.out.println(reserves.reserves());
+        System.out.println(" <= RESERVES => \n" + reserves.reserves());
     }
 }

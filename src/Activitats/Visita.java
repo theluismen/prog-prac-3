@@ -22,9 +22,9 @@ public class Visita extends Activitat{
      * @param   dia     Dia de l'activitat
      */
 
-    public Visita ( boolean audioguia, boolean adaptada, String nom, String lloc, int cpostal, int dia, Entitat entitat ){
+    public Visita ( boolean audioguia, boolean adaptada, String nom, String lloc, int cpostal, int dia, String nomEntitat ){
 
-        super(nom, lloc, cpostal, dia, entitat);
+        super(nom, lloc, cpostal, dia, nomEntitat);
         this.audioguia=audioguia;
         this.adaptada=adaptada;
 

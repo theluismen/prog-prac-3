@@ -13,8 +13,8 @@ public class Taller extends Activitat {
     private LlistaReserves reserves;
 
     /* CONSTRUCTOR */
-    public Taller ( String nom, String lloc, int cpostal, int dia, Entitat entitat, int hora, int durada, int capacitat ) {
-        super( nom, lloc, cpostal, dia, entitat );
+    public Taller ( String nom, String lloc, int cpostal, int dia, String nomEntitat, int hora, int durada, int capacitat ) {
+        super( nom, lloc, cpostal, dia, nomEntitat );
         this.hora      = hora;
         this.durada    = durada;
         this.capacitat = capacitat;
@@ -106,7 +106,7 @@ public class Taller extends Activitat {
     * @return entitat  Copia de l'entitat
     */
     public Taller copia () {
-        return new Taller ( this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getEntitat().copia(), this.hora, this.durada, this.capacitat);
+        return new Taller ( this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getNomEntitat(), this.hora, this.durada, this.capacitat);
     }
 
     /**

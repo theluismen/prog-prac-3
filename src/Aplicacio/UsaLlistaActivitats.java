@@ -14,13 +14,13 @@ public class UsaLlistaActivitats {
             System.out.print(i + "  ");
             switch ( i % 3 ) {
                 case 0:
-                    added = activitats.addActivitat( new Activitat("Carreres", "Tarragona", 43400, 13, new Entitat("Redbull", "123456789", "redbull@gmail.com")) );
+                    added = activitats.addActivitat( new Activitat("Carreres", "Tarragona", 43400, 13, (new Entitat("Redbull", "123456789", "redbull@gmail.com")).getNom()) );
                     break;
                 case 1:
-                    added = activitats.addActivitat( new Xerrada("Elon Musk", "Tecnologia", "Reus", 43500, 23, new Entitat("SpaceX", "98765431", "spacex@gmail.com") ) );
+                    added = activitats.addActivitat( new Xerrada("Elon Musk", "Tecnologia", "Reus", 43500, 23, (new Entitat("SpaceX", "98765431", "spacex@gmail.com")).getNom() ) );
                     break;
                 case 2:
-                    added = activitats.addActivitat( new Visita(true,true, "Fabricacio", "lleida", 43700, 18, new Entitat("Mahle", "456123789", "mahle@gmail.com") ) );
+                    added = activitats.addActivitat( new Visita(true,true, "Fabricacio", "lleida", 43700, 18, (new Entitat("Mahle", "456123789", "mahle@gmail.com")).getNom() ) );
                     break;
             }
             if ( added ) {

@@ -94,8 +94,8 @@ public class LlistaActivitats {
      * @param  correu   Correu de l'entitat
      * @return added    Si s'ha afegit
      */
-    public boolean addActivitat ( String nom, String lloc, int cpostal, int dia, Entitat entitat ) {
-        return this.addActivitat( new Activitat ( nom, lloc, cpostal, dia, entitat ) );
+    public boolean addActivitat ( String nom, String lloc, int cpostal, int dia, String nomEntitat ) {
+        return this.addActivitat( new Activitat ( nom, lloc, cpostal, dia, nomEntitat ) );
     }
 
     /**

@@ -1,7 +1,5 @@
 package bin.Activitats;
 
-import bin.Entitats.Entitat;
-
 public class Activitat {
     /* ATRIBUTOS */
     private String  codi;
@@ -9,7 +7,7 @@ public class Activitat {
     private String  lloc;
     private int     cpostal;
     private int     dia;
-    private Entitat entitat;
+    private String  nomEntitat;
 
     /* ATRIBUTOS: Estaticos */
     private static int codiIndex = 100;
@@ -22,13 +20,13 @@ public class Activitat {
      * @param   cpostal Codi Postal de l'activitat
      * @param   dia     Dia de l'activitat
      */
-    public Activitat ( String nom, String lloc, int cpostal, int dia, Entitat entitat ) {
-        this.codi    = crearCodi( nom );
-        this.nom     = nom;
-        this.lloc    = lloc;
-        this.cpostal = cpostal;
-        this.dia     = dia;
-        this.entitat = entitat.copia();
+    public Activitat ( String nom, String lloc, int cpostal, int dia, String nomEntitat ) {
+        this.codi       = crearCodi( nom );
+        this.nom        = nom;
+        this.lloc       = lloc;
+        this.cpostal    = cpostal;
+        this.dia        = dia;
+        this.nomEntitat = nomEntitat;
     }
 
     /**
@@ -39,13 +37,13 @@ public class Activitat {
      * @param   cpostal Codi Postal de l'activitat
      * @param   dia     Dia de l'activitat
      */
-    public Activitat ( String codi, String nom, String lloc, int cpostal, int dia, Entitat entitat ) {
-        this.codi    = codi;
-        this.nom     = nom;
-        this.lloc    = lloc;
-        this.cpostal = cpostal;
-        this.dia     = dia;
-        this.entitat = entitat.copia();
+    public Activitat ( String codi, String nom, String lloc, int cpostal, int dia, String nomEntitat ) {
+        this.codi       = codi;
+        this.nom        = nom;
+        this.lloc       = lloc;
+        this.cpostal    = cpostal;
+        this.dia        = dia;
+        this.nomEntitat = nomEntitat;
     }
 
     /* METODOS */
@@ -91,8 +89,8 @@ public class Activitat {
      *
      * @param entitat Entitat que organitza l'activitat
      */
-    public void setDia ( Entitat entitat ) {
-        this.entitat = entitat.copia();
+    public void setNomEntitat ( String nomEntitat ) {
+        this.nomEntitat = nomEntitat;
     }
 
     /* METODOS: Getters */
@@ -146,8 +144,8 @@ public class Activitat {
     *
     * @return this.entitat  Entitat que organitza l'activitat
     */
-    public Entitat getEntitat () {
-        return this.entitat.copia();
+    public String getNomEntitat () {
+        return this.nomEntitat;
     }
 
     /* METODOS: Varios */
@@ -172,7 +170,7 @@ public class Activitat {
     * @return  String  String que conte informació
     */
     public String toString ( ) {
-        return String.join(":", this.codi, this.nom, this.lloc, String.valueOf(this.cpostal), String.valueOf(this.dia), this.entitat.getNom());
+        return String.join(":", this.codi, this.nom, this.lloc, String.valueOf(this.cpostal), String.valueOf(this.dia), this.nomEntitat);
     }
 
     /**
@@ -181,6 +179,6 @@ public class Activitat {
     * @return entitat  Copia de l'activitat
     */
     public Activitat copia () {
-        return new Activitat ( this.codi, this.nom, this.lloc, this.cpostal, this.dia, this.entitat );
+        return new Activitat ( this.codi, this.nom, this.lloc, this.cpostal, this.dia, this.nomEntitat );
     }
 }
