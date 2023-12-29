@@ -35,8 +35,8 @@ class UsaActivitat {
         System.out.println( taller.toString() );
 
         Activitat a = new Activitat("Carreres", "Tarragona", 43400, 13, (new Entitat("Redbull", "123456789", "redbull@gmail.com")).getNom());
-        Xerrada x = new Xerrada("Elon Musk", "Tecnologia", "Reus", 43500, 23, (new Entitat("SpaceX", "98765431", "spacex@gmail.com")).getNom());
-        Visita v = new Visita(true,true, "Fabricacio", "lleida", 43700, 18, (new Entitat("Mahle", "456123789", "mahle@gmail.com")).getNom());
+        Xerrada x = new Xerrada("Tecnologia", "Reus", 43500, 23, (new Entitat("SpaceX", "98765431", "spacex@gmail.com")).getNom(), "Elon Musk");
+        Visita v = new Visita("Fabricacio", "lleida", 43700, 18, (new Entitat("Mahle", "456123789", "mahle@gmail.com")).getNom(), true,true );
 
         System.out.println(a.toString());
         System.out.println(x.toString());

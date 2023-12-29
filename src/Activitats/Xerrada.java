@@ -10,7 +10,7 @@ public class Xerrada extends Activitat {
 
 
     /* CONSTRUCTORS */
-    public Xerrada ( String nomAutor, String nom, String lloc, int cpostal, int dia, String nomEntitat ){
+    public Xerrada ( String nom, String lloc, int cpostal, int dia, String nomEntitat, String nomAutor ){
         super(nom, lloc, cpostal, dia, nomEntitat);
         this.nomAutor = nomAutor;
     }
