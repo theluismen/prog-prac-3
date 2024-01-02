@@ -160,7 +160,7 @@ public class Activitat {
     private String crearCodi ( String nom ) {
         String codi = nom.substring(0, 3) + Integer.toString( codiIndex );
         codiIndex ++;
-        return codi;
+        return codi.toUpperCase();
     }
 
     /**

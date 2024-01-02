@@ -7,6 +7,12 @@ import bin.Reserves.LlistaReserves;
 import bin.Activitats.*;
 
 public class App {
+    /**
+     * Funcio que llegeix la informacio del fitxer de Entitats
+     *
+     * @param   filename    Nom del fixer on hi han les dades
+     * @param   llista      Llista que guardara les entitats
+     */
     private static void carregarEntitats ( final String filename, LlistaEntitats llista ) {
         BufferedReader br; String linia;
         String[] dades; String nom, telf, correu; // Informacio de la entitat llegida
@@ -32,6 +38,12 @@ public class App {
         }
     }
 
+    /**
+     * Funcio que llegeix la informacio del fitxer de Usuaris
+     *
+     * @param   filename    Nom del fixer on hi han les dades
+     * @param   llista      Llista que guardara els Usuaris
+     */
     private static void carregarUsuaris  ( final String filename, LlistaUsuaris llista ) {
         BufferedReader br; String linia;
         String[] dades;
@@ -58,6 +70,12 @@ public class App {
         }
     }
 
+    /**
+     * Funcio que llegeix la informacio del fitxer de Reserves
+     *
+     * @param   filename    Nom del fixer on hi han les dades
+     * @param   llista      Llista que guardara les entitats
+     */
     private static void carregarReserves  ( final String filename, LlistaReserves llista ) {
         BufferedReader br; String linia;
         String[] dades;
@@ -138,20 +156,24 @@ public class App {
     }
 
     public static void main ( String[] args ) {
-        LlistaEntitats entitats = new LlistaEntitats(10);
-        carregarEntitats(ArxiusApp.ARXIU_ENTITATS, entitats);
-        System.out.println(" <= ENTITATS => \n" + entitats.entitats());
+        // LlistaEntitats entitats = new LlistaEntitats(10);
+        // carregarEntitats(ArxiusApp.ARXIU_ENTITATS, entitats);
+        // System.out.println(" <= ENTITATS => \n" + entitats.entitats());
+        //
+        // System.out.println();
+        //
+        // LlistaUsuaris usuaris = new LlistaUsuaris(10);
+        // carregarUsuaris(ArxiusApp.ARXIU_USUARIS, usuaris);
+        // System.out.println(" <= USUARIS => \n" + usuaris.usuaris());
+        //
+        // System.out.println();
+        //
+        // LlistaReserves reserves = new LlistaReserves(10);
+        // carregarReserves(ArxiusApp.ARXIU_RESERVES, reserves);
+        // System.out.println(" <= RESERVES => \n" + reserves.reserves());
 
-        System.out.println();
-
-        LlistaUsuaris usuaris = new LlistaUsuaris(10);
-        carregarUsuaris(ArxiusApp.ARXIU_USUARIS, usuaris);
-        System.out.println(" <= USUARIS => \n" + usuaris.usuaris());
-
-        System.out.println();
-
-        LlistaReserves reserves = new LlistaReserves(10);
-        carregarReserves(ArxiusApp.ARXIU_RESERVES, reserves);
-        System.out.println(" <= RESERVES => \n" + reserves.reserves());
+        LlistaActivitats activitats = new LlistaActivitats(10);
+        carregarActivitats(ArxiusApp.ARXIU_ACTIVITATS, activitats);
+        System.out.println(" <= ACTIVITATS => \n" + activitats.activitats());
     }
 }

@@ -73,13 +73,12 @@ public class LlistaReserves {
      */
     public boolean addReserva ( Reserva reserva ) {
         boolean added = false;
-
         if ( ! this.llistaPlena() ) {   // Si hi ha lloc
             this.llista[ this.nElem ] = reserva.copia();
             this.nElem ++;
+            codiIndex  ++;
             added = true;
         }
-
         return added;
     }
 
@@ -89,16 +88,11 @@ public class LlistaReserves {
      * Es tracta d'un metode sobrecarregat. Enlloc de rebre l'
      * objecte Reserva, rep els arguments per a crear un.
      *
-     * @param   codi         Codi de la Reserva
      * @param   aliesUsuari  Alies del Usuari que fa la reserva
      * @param   codiTaller   Codi del Taller on l'Usuari fa la reserva
      */
     public boolean addReserva ( String aliesUsuari, String codiTaller ) {
-        boolean afegit = this.addReserva( new Reserva(codiIndex, aliesUsuari, codiTaller) );
-        if ( afegit ) {
-            codiIndex ++;
-        }
-        return afegit;
+        return this.addReserva( new Reserva(codiIndex, aliesUsuari, codiTaller) );
     }
 
     /**

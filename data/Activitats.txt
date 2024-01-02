@@ -1,0 +1,13 @@
+Programación en Python;Barcelona;43000;15;EmpresaX;Fanix
+Experimento de Química en Casa;Reus;43200;12;SolucionesGlobalesS.L.;si
+Charla sobre Inteligencia Artificial;Tarragona;43001;18;ProveedorInternacional
+Observación Astronómica;Barcelona;43002;11;VisionaryEnterprises
+Creación de un Blog de Ciencia;Reus;43201;14;InnovateTechSolutions
+Desarrollo de Videojuegos;Barcelona;43003;17;QuantumDynamicsLtd.
+Club de Ciencias Escolar;Tarragona;43004;13;SummitSuppliers
+Participación en Hackatón;Barcelona;43005;16;NexusPartners
+Investigación en Inteligencia Artificial Ética;Tarragona;43006;10;BlueSkyInnovations
+Diseño de Páginas Web;Barcelona;43007;19;PrimeSuppliersInc.
+Club de Ciencias Juvenil;Reus;43202;16;GalaxyEnterprises
+Hackatón de Innovación;Tarragona;43008;14;SmartTechCorp.
+Desarrollo Sostenible;Barcelona;43009;11;AlphaSuppliers

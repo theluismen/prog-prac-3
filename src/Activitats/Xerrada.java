@@ -3,9 +3,8 @@ package bin.Activitats;
 import bin.Entitats.Entitat;
 
 public class Xerrada extends Activitat {
-
-        /* ATRIBUTS */
-    private final int hora = 17;
+    /* ATRIBUTS */
+    private static final int hora = 17;
     private String nomAutor;
 
 
@@ -36,10 +35,7 @@ public class Xerrada extends Activitat {
         return nomAutor;
     }
 
-
-
    /* METODES: SETTERS */
-
     /**
      * Setter de l'atribut this.nomAutor
      *
@@ -49,13 +45,11 @@ public class Xerrada extends Activitat {
         this.nomAutor = nomAutor;
     }
 
-
     /**
      * Metode que retorna un String que conte les dades del objecte
      *
      * @return nomAutor     Autor de la xerrada
      */
-
     public String toString() {
         return String.join(":", "Xerrada [hora=" + this.hora, "nomAutor=" + nomAutor, super.toString()+"]");
     }
