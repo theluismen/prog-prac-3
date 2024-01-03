@@ -134,9 +134,7 @@ public class LlistaActivitats {
         if ( ! this.llistaTallersPlena() ) {
             // Si hi ha lloc
             this.tallers[ this.nElemTaller ] = taller.copia();
-            System.out.println("Hay espacio");
         } else {
-            System.out.println("Realojando");
             // Si no hi ha lloc, reservo mes espai
             aux = new Taller[ this.nElemTaller + 2 ];
             copiaTallers( this.tallers, aux );
@@ -145,7 +143,6 @@ public class LlistaActivitats {
             this.tallers = aux;
         }
         this.nElemTaller ++;
-        System.out.println(this.nElemTaller + "/" + this.tallers.length);
     }
 
     /**
@@ -179,9 +176,7 @@ public class LlistaActivitats {
         if ( ! this.llistaVisitesPlena() ) {
             // Si hi ha lloc
             this.visites[ this.nElemVisita ] = visita.copia();
-            System.out.println("Hay espacio");
         } else {
-            System.out.println("Realojando");
             // Si no hi ha lloc, reservo mes espai
             aux = new Visita[ this.nElemVisita + 2 ];
             copiaVisites( this.visites, aux );
@@ -190,7 +185,6 @@ public class LlistaActivitats {
             this.visites = aux;
         }
         this.nElemVisita ++;
-        System.out.println(this.nElemVisita + "/" + this.visites.length);
     }
 
     /**
@@ -224,9 +218,7 @@ public class LlistaActivitats {
         if ( ! this.llistaXerradesPlena() ) {
             // Si hi ha lloc
             this.xerrades[ this.nElemXerrada ] = xerrada.copia();
-            System.out.println("Hay espacio");
         } else {
-            System.out.println("Realojando");
             // Si no hi ha lloc, reservo mes espai
             aux = new Xerrada[ this.nElemXerrada + 2 ];
             copiaXerrades( this.xerrades, aux );
@@ -235,7 +227,6 @@ public class LlistaActivitats {
             this.xerrades = aux;
         }
         this.nElemXerrada ++;
-        System.out.println(this.nElemXerrada + "/" + this.xerrades.length);
     }
 
     private void copiaXerrades ( Xerrada[] origen, Xerrada[] desti ) {

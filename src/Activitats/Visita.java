@@ -68,6 +68,6 @@ public class Visita extends Activitat{
 
     @Override
     public String toString() {
-        return String.join(":", "Visita [audioguia=" + String.valueOf(this.audioguia), "adaptada=" + String.valueOf(this.adaptada), super.toString()+"]");
+        return "Visita  [ " + String.join(":", super.toString(), "autog=" + String.valueOf(this.audioguia), "adapt=" + String.valueOf(this.adaptada)) +"]";
     }
 }

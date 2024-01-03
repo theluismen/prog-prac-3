@@ -95,7 +95,7 @@ public class Taller extends Activitat {
     * @return entitat  Copia de l'entitat
     */
     public String toString () {
-        return String.join(":", super.toString(), String.valueOf(this.hora)+"h", String.valueOf(this.durada)+"m", String.valueOf(this.getCapacitat())+"p");
+        return "Taller  [ " + String.join(":", super.toString(), String.valueOf(this.hora)+"h", String.valueOf(this.durada)+"m", String.valueOf(this.getCapacitat())+"p") + " ]";
     }
 
     /**

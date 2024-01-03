@@ -55,6 +55,6 @@ public class Xerrada extends Activitat {
      * @return nomAutor     Autor de la xerrada
      */
     public String toString() {
-        return String.join(":", "Xerrada [hora=" + this.hora, "nomAutor=" + nomAutor, super.toString()+"]");
+        return "Xerrada [ " + String.join(":", super.toString(), this.hora+"h", this.nomAutor) + "]";
     }
 }

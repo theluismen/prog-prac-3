@@ -120,7 +120,7 @@ public class App {
                 nomEntitat = dades[4];
                 /* Segun la cantidad de datos leidos es un taller, visita o xerrada */
                 switch ( dades.length ) {
-                    case 6: // Xerrada
+                    case 6:
                         /* Variables de Xerrada Adicionals */
                         String nomAutor = dades[5];
                         /* Afegir una nova activitat tipus Xerrada */
@@ -172,6 +172,6 @@ public class App {
 
         LlistaActivitats activitats = new LlistaActivitats();
         carregarActivitats(ArxiusApp.ARXIU_ACTIVITATS, activitats);
-        System.out.println(" <= ACTIVITATS => \n" + activitats.activitats());
+        System.out.println(" <= ACTIVITATS " + activitats.getNElem() + " => \n" + activitats.activitats());
     }
 }
