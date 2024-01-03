@@ -14,6 +14,11 @@ public class Xerrada extends Activitat {
         this.nomAutor = nomAutor;
     }
 
+    public Xerrada ( String codi, String nom, String lloc, int cpostal, int dia, String nomEntitat, String nomAutor ){
+        super(codi, nom, lloc, cpostal, dia, nomEntitat);
+        this.nomAutor = nomAutor;
+    }
+
     /* METODES */
     /* METODES: getters */
 
@@ -46,7 +51,7 @@ public class Xerrada extends Activitat {
     }
 
     public Xerrada copia () {
-        return new Xerrada ( this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getNomEntitat(), this.nomAutor);
+        return new Xerrada (  this.getCodi(), this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getNomEntitat(), this.nomAutor);
     }
 
     /**

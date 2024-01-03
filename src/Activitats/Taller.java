@@ -19,6 +19,13 @@ public class Taller extends Activitat {
         this.reserves  = new LlistaReserves( capacitat );
     }
 
+    public Taller ( String codi, String nom, String lloc, int cpostal, int dia, String nomEntitat, int hora, int durada, int capacitat ) {
+        super( codi, nom, lloc, cpostal, dia, nomEntitat );
+        this.hora      = hora;
+        this.durada    = durada;
+        this.reserves  = new LlistaReserves( capacitat );
+    }
+
     /* METODOS */
     /* METODOS: Setters */
 
@@ -104,7 +111,7 @@ public class Taller extends Activitat {
     * @return entitat  Copia de l'entitat
     */
     public Taller copia () {
-        return new Taller ( this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getNomEntitat(), this.hora, this.durada, this.getCapacitat());
+        return new Taller ( this.getCodi(), this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getNomEntitat(), this.hora, this.durada, this.getCapacitat());
     }
 
     /**

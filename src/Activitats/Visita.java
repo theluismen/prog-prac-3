@@ -28,6 +28,12 @@ public class Visita extends Activitat{
         this.adaptada  = adaptada;
     }
 
+    public Visita ( String codi, String nom, String lloc, int cpostal, int dia, String nomEntitat, boolean audioguia, boolean adaptada ){
+        super( codi, nom, lloc, cpostal, dia, nomEntitat);
+        this.audioguia = audioguia;
+        this.adaptada  = adaptada;
+    }
+
     /* METODES */
     /* METODES: setters i getters */
     /**Getter de l'atribut audiogia
@@ -63,7 +69,7 @@ public class Visita extends Activitat{
     }
 
     public Visita copia () {
-        return new Visita ( this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getNomEntitat(), this.audioguia, this.adaptada);
+        return new Visita ( this.getCodi(), this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getNomEntitat(), this.audioguia, this.adaptada);
     }
 
     @Override

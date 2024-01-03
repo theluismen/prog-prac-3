@@ -70,36 +70,11 @@ public class App {
     }
 
     /**
-     * Funcio que llegeix la informacio del fitxer de Reserves
+     * Funcio que llegeix la informacio del fitxer de Activitats
      *
      * @param   filename    Nom del fixer on hi han les dades
-     * @param   llista      Llista que guardara les entitats
+     * @param   llista      Llista que guardara les activitats
      */
-    private static void carregarReserves  ( final String filename, LlistaReserves llista ) {
-        BufferedReader br; String linia;
-        String[] dades; String aliesUsuari, coditaller;  // Informacio del Usuari llegit
-        try {
-            br = new BufferedReader( new FileReader( filename ) );
-            linia = br.readLine();   // Llegir linia
-            while ( linia != null && ! llista.llistaPlena() ) {
-                dades = linia.split(ArxiusApp.ARXIU_DELIMITER);
-                /* Guardar informacio en variables ( comoditat ) */
-                //codi    = Integer.parseInt(dades[0]);
-                aliesUsuari   = dades[0];
-                coditaller  = dades[1];
-                /* Afegir una nova Reserva amb la informacio llegida */
-                llista.addReserva(aliesUsuari, coditaller);
-                /* Tornar a Llegir linia */
-                linia = br.readLine();
-            }
-            br.close();
-        } catch ( FileNotFoundException e ) {
-            System.out.println( e.getMessage() );
-        } catch ( IOException e ) {
-            System.out.println( e.getMessage() );
-        }
-    }
-
     private static void carregarActivitats ( final String filename, LlistaActivitats llista ) {
         BufferedReader br; String linia;
         String[] dades;
@@ -142,6 +117,37 @@ public class App {
                         llista.addTaller( new Taller(nom, lloc, cpostal, dia, nomEntitat, hora, durada, capacitat ) );
                         break;
                 }
+                /* Tornar a Llegir linia */
+                linia = br.readLine();
+            }
+            br.close();
+        } catch ( FileNotFoundException e ) {
+            System.out.println( e.getMessage() );
+        } catch ( IOException e ) {
+            System.out.println( e.getMessage() );
+        }
+    }
+
+    /**
+    * Funcio que llegeix la informacio del fitxer de Reserves
+    *
+    * @param   filename    Nom del fixer on hi han les dades
+    * @param   llista      Llista que guardara les reserves
+    */
+    private static void carregarReserves  ( final String filename, LlistaReserves llista ) {
+        BufferedReader br; String linia;
+        String[] dades; String aliesUsuari, coditaller;  // Informacio del Usuari llegit
+        try {
+            br = new BufferedReader( new FileReader( filename ) );
+            linia = br.readLine();   // Llegir linia
+            while ( linia != null && ! llista.llistaPlena() ) {
+                dades = linia.split(ArxiusApp.ARXIU_DELIMITER);
+                /* Guardar informacio en variables ( comoditat ) */
+                //codi    = Integer.parseInt(dades[0]);
+                aliesUsuari = dades[0];
+                coditaller  = dades[1];
+                /* Afegir una nova Reserva amb la informacio llegida */
+                llista.addReserva(aliesUsuari, coditaller);
                 /* Tornar a Llegir linia */
                 linia = br.readLine();
             }

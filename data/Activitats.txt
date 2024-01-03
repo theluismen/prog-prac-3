@@ -1,6 +1,9 @@
 Programacion en Python;Barcelona;43000;15;EmpresaX;Nate Gentile
 Experimento de Quimica en Casa;Reus;43200;12;SolucionesGlobalesS.L.;Experimentos Caseros
 Charla sobre Inteligencia Artificial;Tarragona;43001;18;ProveedorInternacional;Jonah Jameson
+Investigacion en I.A. Etica;Tarragona;43006;10;BlueSkyInnovations;Nate Gentile
+Diseno de Paginas Web;Barcelona;43007;19;PrimeSuppliersInc.;Nate Gentile
+Hackaton de Innovacion;Tarragona;43008;14;SmartTechCorp.;Betta Tech
 Observacion Astronomica;Barcelona;43002;11;VisionaryEnterprises;true;true
 Club de Ciencias Escolar;Tarragona;43004;13;SummitSuppliers;true;false
 Club de Ciencias Juvenil;Reus;43202;16;GalaxyEnterprises;true;false
@@ -8,6 +11,3 @@ Desarrollo Sostenible;Barcelona;43009;11;AlphaSuppliers;false;true
 Creacion de un Blog de Ciencia;Reus;43201;14;InnovateTechSolutions;10;120;15
 Desarrollo de Videojuegos;Barcelona;43003;17;QuantumDynamicsLtd.;10;120;15
 Participacion en Hackaton;Barcelona;43005;16;NexusPartners;10;120;15
-Investigacion en I.A. Etica;Tarragona;43006;10;BlueSkyInnovations;Nate Gentile
-Diseno de Paginas Web;Barcelona;43007;19;PrimeSuppliersInc.;Nate Gentile
-Hackaton de Innovacion;Tarragona;43008;14;SmartTechCorp.;Betta Tech
