@@ -62,6 +62,10 @@ public class Visita extends Activitat{
         this.adaptada = adaptada;
     }
 
+    public Visita copia () {
+        return new Visita ( this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getNomEntitat(), this.audioguia, this.adaptada);
+    }
+
     @Override
     public String toString() {
         return String.join(":", "Visita [audioguia=" + String.valueOf(this.audioguia), "adaptada=" + String.valueOf(this.adaptada), super.toString()+"]");

@@ -46,8 +46,7 @@ public class App {
      */
     private static void carregarUsuaris  ( final String filename, LlistaUsuaris llista ) {
         BufferedReader br; String linia;
-        String[] dades;
-        String alies, correu; int cpostal; // Informacio del Usuari llegit
+        String[] dades; String alies, correu; int cpostal; // Informacio del Usuari llegit
         try {
             br = new BufferedReader( new FileReader( filename ) );
             linia = br.readLine();   // Llegir linia
@@ -78,8 +77,7 @@ public class App {
      */
     private static void carregarReserves  ( final String filename, LlistaReserves llista ) {
         BufferedReader br; String linia;
-        String[] dades;
-        /*int codi;*/String aliesUsuari, coditaller;  // Informacio del Usuari llegit
+        String[] dades; String aliesUsuari, coditaller;  // Informacio del Usuari llegit
         try {
             br = new BufferedReader( new FileReader( filename ) );
             linia = br.readLine();   // Llegir linia
@@ -126,14 +124,14 @@ public class App {
                         /* Variables de Xerrada Adicionals */
                         String nomAutor = dades[5];
                         /* Afegir una nova activitat tipus Xerrada */
-                        llista.addActivitat( new Xerrada(nom, lloc, cpostal, dia, nomEntitat, nomAutor) );
+                        llista.addXerrada( new Xerrada(nom, lloc, cpostal, dia, nomEntitat, nomAutor) );
                         break;
                     case 7:
                         /* Variables de Visita Adicionals */
                         boolean audioguia = Boolean.parseBoolean(dades[5]);
                         boolean adaptada  = Boolean.parseBoolean(dades[6]);
                         /* Afegir una nova activitat tipus Visita */
-                        llista.addActivitat( new Visita(nom, lloc, cpostal, dia, nomEntitat, audioguia, adaptada ) );
+                        llista.addVisita( new Visita(nom, lloc, cpostal, dia, nomEntitat, audioguia, adaptada ) );
                         break;
                     case 8:
                         /* Variables de Taller Adicionals */
@@ -141,7 +139,7 @@ public class App {
                         int durada    = Integer.parseInt(dades[6]);
                         int capacitat = Integer.parseInt(dades[7]);
                         /* Afegir una nova activitat tipus Taller */
-                        llista.addActivitat( new Taller(nom, lloc, cpostal, dia, nomEntitat, hora, durada, capacitat ) );
+                        llista.addTaller( new Taller(nom, lloc, cpostal, dia, nomEntitat, hora, durada, capacitat ) );
                         break;
                 }
                 /* Tornar a Llegir linia */
@@ -172,7 +170,7 @@ public class App {
         // carregarReserves(ArxiusApp.ARXIU_RESERVES, reserves);
         // System.out.println(" <= RESERVES => \n" + reserves.reserves());
 
-        LlistaActivitats activitats = new LlistaActivitats(10);
+        LlistaActivitats activitats = new LlistaActivitats();
         carregarActivitats(ArxiusApp.ARXIU_ACTIVITATS, activitats);
         System.out.println(" <= ACTIVITATS => \n" + activitats.activitats());
     }

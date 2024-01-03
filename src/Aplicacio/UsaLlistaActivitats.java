@@ -5,30 +5,29 @@ import bin.Entitats.Entitat;
 
 public class UsaLlistaActivitats {
     public static void main ( String args[] ) {
-        LlistaActivitats activitats = new LlistaActivitats(30);
+        LlistaActivitats activitats = new LlistaActivitats();
         int i = 0;
-        boolean added = true;
 
         // Validar que addEntitat funciona bien
         while ( i < 35 ) {
             System.out.print(i + "  ");
             switch ( i % 3 ) {
                 case 0:
-                    added = activitats.addActivitat( new Activitat("Carreres", "Tarragona", 43400, 13, (new Entitat("Redbull", "123456789", "redbull@gmail.com")).getNom()) );
+                    activitats.addTaller( new Taller("Carreres", "Tarragona", 43400, 13, (new Entitat("Redbull", "123456789", "redbull@gmail.com")).getNom(), 10, 10, 10) );
                     break;
                 case 1:
-                    added = activitats.addActivitat( new Xerrada("Tecnologia", "Reus", 43500, 23, (new Entitat("SpaceX", "98765431", "spacex@gmail.com")).getNom(), "Elon Musk" ) );
+                    activitats.addXerrada( new Xerrada("Tecnologia", "Reus", 43500, 23, (new Entitat("SpaceX", "98765431", "spacex@gmail.com")).getNom(), "Elon Musk" ) );
                     break;
                 case 2:
-                    added = activitats.addActivitat( new Visita("Fabricacio", "lleida", 43700, 18, (new Entitat("Mahle", "456123789", "mahle@gmail.com")).getNom(), true, true ) );
+                    activitats.addVisita( new Visita("Fabricacio", "lleida", 43700, 18, (new Entitat("Mahle", "456123789", "mahle@gmail.com")).getNom(), true, true ) );
                     break;
-            }
-            if ( added ) {
-                System.out.println( "Afegit ->" + activitats.getActivitat(i).toString() );
-            } else {
-                System.out.println( "No s'ha afegit. NO HI HA ESPAI" );
             }
             i++;
         }
+        System.out.print(activitats.tallers());
+        System.out.print(activitats.visites());
+        System.out.print(activitats.xerrades());
+        System.out.print(activitats.activitats());
+
     }
 }

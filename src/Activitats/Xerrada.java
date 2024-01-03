@@ -35,7 +35,7 @@ public class Xerrada extends Activitat {
         return nomAutor;
     }
 
-   /* METODES: SETTERS */
+    /* METODES: SETTERS */
     /**
      * Setter de l'atribut this.nomAutor
      *
@@ -43,6 +43,10 @@ public class Xerrada extends Activitat {
      */
     public void setNomAutor(String nomAutor) {
         this.nomAutor = nomAutor;
+    }
+
+    public Xerrada copia () {
+        return new Xerrada ( this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getNomEntitat(), this.nomAutor);
     }
 
     /**
