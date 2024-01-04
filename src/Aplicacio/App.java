@@ -55,6 +55,7 @@ public class App {
                 linia = br.readLine();
             }
             br.close();
+            System.out.println("    - Carregades " + entitats.getNElem() + " entitats.");
         } catch ( FileNotFoundException e ) {
             System.out.println( e.getMessage() );
         } catch ( IOException e ) {
@@ -86,6 +87,7 @@ public class App {
                 linia = br.readLine();
             }
             br.close();
+            System.out.println("    - Carregats  " + usuaris.getNElem() + " usuaris.");
         } catch ( FileNotFoundException e ) {
             System.out.println( e.getMessage() );
         } catch ( IOException e ) {
@@ -146,6 +148,10 @@ public class App {
                 linia = br.readLine();
             }
             br.close();
+            System.out.println("    - Carregades " + activitats.getNElem() + " activitats.");
+            System.out.println("      ->         " + activitats.getNXerrades() + "  xerrades.");
+            System.out.println("      ->         " + activitats.getNVisites() + "  visites.");
+            System.out.println("      ->         " + activitats.getNTallers() + "  tallers.");
         } catch ( FileNotFoundException e ) {
             System.out.println( e.getMessage() );
         } catch ( IOException e ) {
@@ -181,6 +187,7 @@ public class App {
                 linia = br.readLine();
             }
             br.close();
+            System.out.println("    - Carregades " + activitats.getNReserves() + " reserves.");
         } catch ( FileNotFoundException e ) {
             System.out.println( e.getMessage() );
         } catch ( IOException e ) {
@@ -196,29 +203,33 @@ public class App {
     * @param   activitats  Objecte tipus LlistaActivitats
     */
     private static void carregarInfoFitxers ( LlistaEntitats entitats, LlistaUsuaris usuaris, LlistaActivitats activitats ) {
+        System.out.println("[+] - Carregant informacio de fitxers...");
         carregarEntitats(ArxiusApp.ARXIU_ENTITATS, entitats);
         carregarUsuaris(ArxiusApp.ARXIU_USUARIS, usuaris);
         carregarActivitats(ArxiusApp.ARXIU_ACTIVITATS, activitats);
         carregarReserves(ArxiusApp.ARXIU_RESERVES, activitats);
     }
+
     public static void main ( String[] args ) {
+        /* LLISTES, VARIABLES, CONSTANTS */
         LlistaEntitats   entitats   = new LlistaEntitats(liniesFitxer(ArxiusApp.ARXIU_ENTITATS));
         LlistaUsuaris    usuaris    = new LlistaUsuaris(liniesFitxer(ArxiusApp.ARXIU_USUARIS));
         LlistaActivitats activitats = new LlistaActivitats();
 
+        /* Carregar tota la informació del fitxer a les llistes */
         carregarInfoFitxers(entitats, usuaris, activitats);
 
-        System.out.println(" <= ENTITATS => \n" + entitats.entitats());
-        System.out.println();
-        System.out.println(" <= USUARIS => \n" + usuaris.usuaris());
-        System.out.println();
-
-        System.out.println(" <= ACTIVITATS " + activitats.getNElem() + " => \n" + activitats.activitats());
-        System.out.println();
-        System.out.println();
-        System.out.println(" <= RESERVES => ");
-        System.out.println(activitats.reserves());
-        System.out.println(activitats.getTaller(0).reserves());
+        // System.out.println(" <= ENTITATS => \n" + entitats.entitats());
+        // System.out.println();
+        // System.out.println(" <= USUARIS => \n" + usuaris.usuaris());
+        // System.out.println();
+        //
+        // System.out.println(" <= ACTIVITATS " + activitats.getNElem() + " => \n" + activitats.activitats());
+        // System.out.println();
+        // System.out.println();
+        // System.out.println(" <= RESERVES => ");
+        // System.out.println(activitats.reserves());
+        // System.out.println(activitats.getTaller(0).reserves());
 
 
     }

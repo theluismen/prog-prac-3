@@ -5,9 +5,9 @@ import bin.Excepcions.TallerNoTrobatExcepcio;
 
 public class LlistaActivitats {
     /* ATRIBUTOS */
-    private int        nElemTaller;
-    private int        nElemVisita;
-    private int        nElemXerrada;
+    private int        nTallers;
+    private int        nVisites;
+    private int        nXerrades;
     private Taller[]   tallers;
     private Visita[]   visites;
     private Xerrada[]  xerrades;
@@ -21,9 +21,9 @@ public class LlistaActivitats {
         this.tallers  = new Taller [ 1 ];
         this.visites  = new Visita [ 1 ];
         this.xerrades = new Xerrada[ 1 ];
-        this.nElemTaller    = 0;
-        this.nElemVisita    = 0;
-        this.nElemXerrada   = 0;
+        this.nTallers    = 0;
+        this.nVisites    = 0;
+        this.nXerrades   = 0;
     }
 
     /* METODOS */
@@ -47,7 +47,7 @@ public class LlistaActivitats {
      */
     public Taller getTallerPerCodi ( String codi ) throws TallerNoTrobatExcepcio {
         int i; boolean trobat = false;
-        for ( i = 0; i < this.nElemTaller && ! trobat; i++ ) {
+        for ( i = 0; i < this.nTallers && ! trobat; i++ ) {
             if ( this.tallers[i].getCodi().equals(codi.toUpperCase()) ) {
                 trobat = true;
             }
@@ -94,7 +94,51 @@ public class LlistaActivitats {
     * @return length  No Elements Guardats
     */
     public int getNElem () {
-        return this.nElemTaller + this.nElemVisita + this.nElemXerrada;
+        return this.nTallers + this.nVisites + this.nXerrades;
+    }
+
+    /**
+    * Metode que retorna la quantitat de tallers
+    * emmagatzemats.
+    *
+    * @return length  No Tallers Guardats
+    */
+    public int getNTallers () {
+        return this.nTallers;
+    }
+
+    /**
+    * Metode que retorna la quantitat de visites
+    * emmagatzemades.
+    *
+    * @return length  No Visites Guardades
+    */
+    public int getNVisites () {
+        return this.nVisites;
+    }
+
+    /**
+    * Metode que retorna la quantitat de Xerrades
+    * emmagatzemades.
+    *
+    * @return length  No Xerrades Guardades
+    */
+    public int getNXerrades () {
+        return this.nXerrades;
+    }
+
+    /**
+    * Metode que retorna la quantitat de reserves
+    * emmagatzemades.
+    *
+    * @return length  No reserves Guardades
+    */
+    public int getNReserves() {
+        int i, nRes = 0;
+        for ( i = 0; i < this.tallers.length; i++ ) {
+            nRes += this.tallers[i].getNReservas();
+        }
+        return nRes;
     }
 
     /**
@@ -127,7 +171,7 @@ public class LlistaActivitats {
      * @return llistaPlenaTallers
      */
     public boolean llistaTallersPlena ( ) {
-        return this.nElemTaller >= this.tallers.length;
+        return this.nTallers >= this.tallers.length;
     }
 
     /**
@@ -138,7 +182,7 @@ public class LlistaActivitats {
      * @return llistaPlenaVisites
      */
     public boolean llistaVisitesPlena ( ) {
-        return this.nElemVisita >= this.visites.length;
+        return this.nVisites >= this.visites.length;
     }
 
     /**
@@ -149,7 +193,7 @@ public class LlistaActivitats {
      * @return llistaPlenaXerrades
      */
     public boolean llistaXerradesPlena ( ) {
-        return this.nElemXerrada >= this.xerrades.length;
+        return this.nXerrades >= this.xerrades.length;
     }
 
     /**
@@ -164,16 +208,16 @@ public class LlistaActivitats {
         Taller[] aux;
         if ( ! this.llistaTallersPlena() ) {
             // Si hi ha lloc
-            this.tallers[ this.nElemTaller ] = taller.copia();
+            this.tallers[ this.nTallers ] = taller.copia();
         } else {
             // Si no hi ha lloc, reservo mes espai
-            aux = new Taller[ this.nElemTaller + 2 ];
+            aux = new Taller[ this.nTallers + 2 ];
             copiaTallers( this.tallers, aux );
             // Añado el taller que he recibido
-            aux[ this.nElemTaller ] = taller.copia();
+            aux[ this.nTallers ] = taller.copia();
             this.tallers = aux;
         }
-        this.nElemTaller ++;
+        this.nTallers ++;
     }
 
     /**
@@ -206,16 +250,16 @@ public class LlistaActivitats {
         Visita[] aux;
         if ( ! this.llistaVisitesPlena() ) {
             // Si hi ha lloc
-            this.visites[ this.nElemVisita ] = visita.copia();
+            this.visites[ this.nVisites ] = visita.copia();
         } else {
             // Si no hi ha lloc, reservo mes espai
-            aux = new Visita[ this.nElemVisita + 2 ];
+            aux = new Visita[ this.nVisites + 2 ];
             copiaVisites( this.visites, aux );
             // Añado el taller que he recibido
-            aux[ this.nElemVisita ] = visita.copia();
+            aux[ this.nVisites ] = visita.copia();
             this.visites = aux;
         }
-        this.nElemVisita ++;
+        this.nVisites ++;
     }
 
     /**
@@ -248,16 +292,16 @@ public class LlistaActivitats {
         Xerrada[] aux;
         if ( ! this.llistaXerradesPlena() ) {
             // Si hi ha lloc
-            this.xerrades[ this.nElemXerrada ] = xerrada.copia();
+            this.xerrades[ this.nXerrades ] = xerrada.copia();
         } else {
             // Si no hi ha lloc, reservo mes espai
-            aux = new Xerrada[ this.nElemXerrada + 2 ];
+            aux = new Xerrada[ this.nXerrades + 2 ];
             copiaXerrades( this.xerrades, aux );
             // Añado el taller que he recibido
-            aux[ this.nElemXerrada ] = xerrada.copia();
+            aux[ this.nXerrades ] = xerrada.copia();
             this.xerrades = aux;
         }
-        this.nElemXerrada ++;
+        this.nXerrades ++;
     }
 
     private void copiaXerrades ( Xerrada[] origen, Xerrada[] desti ) {
@@ -284,7 +328,7 @@ public class LlistaActivitats {
     public String tallers ( ) {
         String all = new String("");
         int i;
-        for ( i = 0; i < this.nElemTaller; i++ ) {
+        for ( i = 0; i < this.nTallers; i++ ) {
             all += this.tallers[i].toString() + "\n";
         }
         return all;
@@ -298,7 +342,7 @@ public class LlistaActivitats {
     public String visites ( ) {
         String all = new String("");
         int i;
-        for ( i = 0; i < this.nElemVisita; i++ ) {
+        for ( i = 0; i < this.nVisites; i++ ) {
             all += this.visites[i].toString() + "\n";
         }
         return all;
@@ -312,7 +356,7 @@ public class LlistaActivitats {
     public String xerrades ( ) {
         String all = new String("");
         int i;
-        for ( i = 0; i < this.nElemXerrada; i++ ) {
+        for ( i = 0; i < this.nXerrades; i++ ) {
             all += this.xerrades[i].toString() + "\n";
         }
         return all;
@@ -326,7 +370,7 @@ public class LlistaActivitats {
     public String reserves ( ) {
         String all = new String("");
         int i;
-        for ( i = 0; i < this.nElemTaller; i++ ) {
+        for ( i = 0; i < this.nTallers; i++ ) {
             all += this.tallers[i].toString() + "\n";
             all += this.tallers[i].reserves();
         }
