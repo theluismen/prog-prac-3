@@ -2,6 +2,11 @@
 CP = ./bin
 OUTPUT_DIR = .
 
+## ARCHIVOS DE EXCEPCIONES: Package Entitats ##
+# Compilación archivo TallerNoTrobatExcepcio.class
+./bin/Excepcions/TallerNoTrobatExcepcio.class: ./src/Excepcions/TallerNoTrobatExcepcio.java
+	javac -d . $<
+
 ## ARCHIVOS DE CLASES: Package Entitats ##
 # Compilación archivo Entitat.class
 ./bin/Entitats/Entitat.class: ./src/Entitats/Entitat.java
@@ -82,7 +87,8 @@ OUTPUT_DIR = .
 	javac -d . $<
 
 # Regla que obliga a ir compilando todos los archivos anteriores
-all: 	./bin/Entitats/Entitat.class \
+all: 	./bin/Excepcions/TallerNoTrobatExcepcio.class \
+		./bin/Entitats/Entitat.class \
 		./bin/Entitats/LlistaEntitats.class \
 		./bin/Reserves/Reserva.class \
 		./bin/Reserves/LlistaReserves.class \

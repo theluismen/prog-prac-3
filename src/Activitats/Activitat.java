@@ -21,7 +21,7 @@ public class Activitat {
      * @param   dia     Dia de l'activitat
      */
     public Activitat ( String nom, String lloc, int cpostal, int dia, String nomEntitat ) {
-        this.codi       = crearCodi( nom );
+        this.codi       = crearCodi( nomEntitat );
         this.nom        = nom;
         this.lloc       = lloc;
         this.cpostal    = cpostal;
@@ -157,8 +157,8 @@ public class Activitat {
     * @param   nom     nom de l'activitat
     * @return  codi    El codi de la activitat
      */
-    private String crearCodi ( String nom ) {
-        String codi = nom.substring(0, 3) + Integer.toString( codiIndex );
+    private String crearCodi ( String nomEntitat ) {
+        String codi = nomEntitat.substring(0, 3) + Integer.toString( codiIndex );
         codiIndex ++;
         return codi.toUpperCase();
     }

@@ -1,6 +1,7 @@
 package bin.Activitats;
 
 import bin.Entitats.Entitat;
+import bin.Excepcions.TallerNoTrobatExcepcio;
 
 public class LlistaActivitats {
     /* ATRIBUTOS */
@@ -34,8 +35,38 @@ public class LlistaActivitats {
      * @param  index    Index del objecte a retornar
      * @return Entitat  objecte a retornar
      */
-    public Activitat getTaller ( int index ) {
+    public Taller getTaller ( int index ) {
         return this.tallers[index].copia();
+    }
+
+    /**
+     * Metode que retorna el taller que tingui el mateix codi que el que
+     * es passa per parametre. NO RETORNA COPIA
+     * @param  codi     Codi del Taller a buscar
+     * @return Taller   Taller que te el codi indicat
+     */
+    public Taller getTallerPerCodi ( String codi ) throws TallerNoTrobatExcepcio {
+        int i; boolean trobat = false;
+        for ( i = 0; i < this.nElemTaller && ! trobat; i++ ) {
+            if ( this.tallers[i].getCodi().equals(codi.toUpperCase()) ) {
+                trobat = true;
+            }
+        }
+        if ( ! trobat ) {
+            throw new TallerNoTrobatExcepcio( codi );
+        } else {
+            return this.tallers[i-1];
+        }
+    }
+
+    /**
+     * Metode que retorna una copia del taller que tingui el mateix codi
+     * que el que es passa per parametre. RETORNA COPIA
+     * @param  codi     Codi del Taller a buscar
+     * @return Taller   Taller que te el codi indicat
+     */
+    public Taller getTallerPerCodiCopia ( String codi ) throws TallerNoTrobatExcepcio {
+        return getTallerPerCodi(codi).copia();
     }
 
     /**
@@ -43,7 +74,7 @@ public class LlistaActivitats {
      * @param  index    Index del objecte a retornar
      * @return Entitat  objecte a retornar
      */
-    public Activitat getVisita ( int index ) {
+    public Visita getVisita ( int index ) {
         return this.visites[index].copia();
     }
 
@@ -52,7 +83,7 @@ public class LlistaActivitats {
      * @param  index    Index del objecte a retornar
      * @return Entitat  objecte a retornar
      */
-    public Activitat getXerrada ( int index ) {
+    public Xerrada getXerrada ( int index ) {
         return this.xerrades[index].copia();
     }
 
@@ -242,7 +273,7 @@ public class LlistaActivitats {
      *
      */
     public String activitats ( ) {
-        return this.tallers() + this.visites() + this.xerrades();
+        return this.xerrades() + this.visites() + this.tallers();
     }
 
     /**
@@ -283,6 +314,21 @@ public class LlistaActivitats {
         int i;
         for ( i = 0; i < this.nElemXerrada; i++ ) {
             all += this.xerrades[i].toString() + "\n";
+        }
+        return all;
+    }
+
+    /**
+     * Metode que retorna informacio del tots
+     *  TALLERS emmaatzemats i les reserves fetes en cadascu.
+     *
+     */
+    public String reserves ( ) {
+        String all = new String("");
+        int i;
+        for ( i = 0; i < this.nElemTaller; i++ ) {
+            all += this.tallers[i].toString() + "\n";
+            all += this.tallers[i].reserves();
         }
         return all;
     }
