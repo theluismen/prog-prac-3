@@ -12,13 +12,13 @@
 - [ ] - Opcio 10
 - [ ] - Opcio 11
 - [x] - Opcio 12
-- [ ] - Opcio 13
+- [x] - Opcio 13
 - [ ] - Opcio 14
 - [ ] - Opcio 15
 
 ## Compilacion y ejecución
-Para compilar el proyecto disponemos un `Makefile`. Este compilará todos los archvivos `.java` de uno en uno. 
-El destino de los archivos que contienen clases sera `./bin/{su paquete correspondiente}`. 
+Para compilar el proyecto disponemos un `Makefile`. Este compilará todos los archvivos `.java` de uno en uno.
+El destino de los archivos que contienen clases sera `./bin/{su paquete correspondiente}`.
 Los archivos que contienen una funcion main (`Usa{clase que validi}.class`) se crean directamente en el directorio `./bin/`.
 
 Para compilar todo ejecutamos:

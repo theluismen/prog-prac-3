@@ -170,6 +170,25 @@ public class LlistaActivitats {
     }
 
     /**
+     * Metode que retorna una LlistaActivitats amb les xerrades que tenen el mateix autor
+     * que un el que s'especifica per teclat
+     *
+     * @param nomAutor Nom de l'autor del que volem veure si hi ha xerrades
+     * @return LlistaActivitats     Conjunt de xerrades realitzades per un autor
+     */
+    public LlistaActivitats getXerradesSegonsAutor( String nomAutor ){
+        LlistaActivitats acts = new LlistaActivitats();
+        Xerrada xerrada;
+        for ( int i = 0; i < this.nXerrades; i++){
+            xerrada = this.getXerrada(i);
+            if( xerrada.getNomAutor().equalsIgnoreCase(nomAutor) ){
+                acts.addXerrada(xerrada);
+            }
+        }
+        return acts;
+    }
+
+    /**
      * Metode que retorna una copia de la instancia indicada.
      * @param  index    Index del objecte a retornar
      * @return Entitat  objecte a retornar

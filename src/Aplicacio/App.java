@@ -321,7 +321,7 @@ public class App {
         boolean sortir = false;
         int opcio;
         /* Variables d'ajut */
-        LlistaActivitats acts; String nomEntitat, aux;
+        LlistaActivitats acts; String nomEntitat, nomAutor;
         boolean audioguia, adaptada;
         int dia;
 
@@ -334,6 +334,7 @@ public class App {
         do {
             mostrarMenuOpcions();
             opcio = demanarOpcio();
+            teclat.nextLine();
             switch ( opcio ) {
                 case 1:
                     System.out.println("ENTITATS\n" + entitats.entitats());
@@ -401,7 +402,14 @@ public class App {
                     }
                     break;
                 case 13:
-
+                    System.out.print("Nom de l'autor de la xerrada: ");
+                    nomAutor = teclat.nextLine();
+                    acts     = activitats.getXerradesSegonsAutor(nomAutor);
+                    if ( acts.llistaBuida() ) {
+                        System.out.println("No hi han xerrades fetes per aquest autor: " + nomAutor);
+                    } else {
+                        System.out.println("XERRADES donades per " + nomAutor + ":\n" + acts.xerrades());
+                    }
                     break;
                 case 14:
 
