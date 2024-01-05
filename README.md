@@ -1,4 +1,21 @@
 # Tercera Práctica de Programación
+## Progreso
+- [x] - Opcio 1
+- [x] - Opcio 2
+- [x] - Opcio 3
+- [x] - Opcio 4
+- [ ] - Opcio 5
+- [ ] - Opcio 6
+- [ ] - Opcio 7
+- [ ] - Opcio 8
+- [ ] - Opcio 9
+- [ ] - Opcio 10
+- [ ] - Opcio 11
+- [x] - Opcio 12
+- [ ] - Opcio 13
+- [ ] - Opcio 14
+- [ ] - Opcio 15
+
 ## Compilacion y ejecución
 Para compilar el proyecto disponemos un `Makefile`. Este compilará todos los archvivos `.java` de uno en uno. 
 El destino de los archivos que contienen clases sera `./bin/{su paquete correspondiente}`. 
