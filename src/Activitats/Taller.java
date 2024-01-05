@@ -88,6 +88,16 @@ public class Taller extends Activitat {
     }
 
     /**
+    * Metode que retorna el valor boolea corresponent a si hi han reserves
+    * fetes al taller.
+    *
+    * @return reservesfetes
+    */
+    public boolean hiHaReservesFetes ( ) {
+        return this.reserves.getNElem() > 0;
+    }
+
+    /**
     * Metode realitza una reserva al taller actual.
     *
     * @param  usuari  Objecte Usuari al que se li fa la reserva

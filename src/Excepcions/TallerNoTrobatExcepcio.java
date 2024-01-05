@@ -9,6 +9,6 @@ public class TallerNoTrobatExcepcio extends Exception {
     }
     /* METODOS */
     public String toString() {
-        return "No s'ha trobat el taller " + this.codiTaller;
+        return "No s'ha trobat el taller amb codi: " + this.codiTaller;
     }
 }
