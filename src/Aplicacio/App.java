@@ -269,12 +269,15 @@ public class App {
 
         /* INICI DEL PROGRAMA */
         System.out.println("[+] - Comencant programa...");
+        /* Bucle principal del Programa */
         do {
             mostrarMenuOpcions();
             opcio = demanarOpcio();
             switch ( opcio ) {
                 case 1:
-                    System.out.println("text1");
+                    System.out.println("ENTITATS\n" + entitats.entitats());
+                    System.out.println("USUARIS\n" + usuaris.usuaris());
+                    System.out.println("ACTIVITATS\nXERRADES\n" + activitats.xerrades() + "VISITES\n" + activitats.visites() + "TALLERS (amb les seves reserves)\n" + activitats.reserves());
                     break;
                 case 2:
 
@@ -321,6 +324,5 @@ public class App {
                     break;
             }
         } while ( ! sortir );
-
     }
 }

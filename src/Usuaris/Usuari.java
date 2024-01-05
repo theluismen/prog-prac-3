@@ -94,6 +94,6 @@ public class Usuari {
     * @return  String  String que conte informació
     */
     public String toString ( ) {
-        return String.join(":", this.alies, this.correu, String.valueOf(this.cpostal));
+        return String.format("%-15s:%-30s:%s", this.alies, this.correu, String.valueOf(this.cpostal));
     }
 }

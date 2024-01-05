@@ -170,7 +170,7 @@ public class Activitat {
     * @return  String  String que conte informació
     */
     public String toString ( ) {
-        return String.join(":", this.codi, String.format("%-40s",this.nom), String.format("%-10s",this.lloc), String.valueOf(this.cpostal), String.valueOf(this.dia), String.format("%-25s",this.nomEntitat));
+        return String.format("%6s:%-40s:%-10s:%s:%s:%s", this.codi, this.nom, this.lloc, String.valueOf(this.cpostal), String.valueOf(this.dia), this.nomEntitat);
     }
 
     /**
