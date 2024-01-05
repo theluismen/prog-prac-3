@@ -256,6 +256,25 @@ public class App {
         return opcio;
 	}
 
+    /*
+    * Funcio que retorna un nombre enter; el dia en que es realitza
+    * una activitat.
+    * @return opcio Opcio del menu
+    */
+    private static int demanarDiaActivitat() {
+		int dia = -1;
+		do {
+			try {
+                System.out.print("Dia: ");
+				dia = teclat.nextInt();
+			} catch ( InputMismatchException  ex ) {
+				teclat.nextLine();
+                System.out.println(" Escriu un valor numeric correcte del 10 al 19");
+			}
+		} while ( dia < 10 || dia > 19 );
+        return dia;
+	}
+
     public static void main ( String[] args ) {
         /* LLISTES, VARIABLES, CONSTANTS */
         LlistaEntitats   entitats   = new LlistaEntitats(liniesFitxer(ArxiusApp.ARXIU_ENTITATS));
@@ -265,6 +284,7 @@ public class App {
         int opcio;
         /* Variables d'ajut */
         String nomEntitat; LlistaActivitats acts;
+        int dia;
 
         /* Carregar tota la informació del fitxer a les llistes */
         carregarInfoFitxers(entitats, usuaris, activitats);
@@ -284,10 +304,21 @@ public class App {
                 case 2:
                     System.out.print("Nom de l'entitat: ");
                     nomEntitat = teclat.next();
-                    System.out.println("ACTIVITATS donades per " + nomEntitat + ":\n" + activitats.getActivitatsPerNomEntitat( nomEntitat ).activitats());
+                    acts       = activitats.getActivitatsPerNomEntitat( nomEntitat );
+                    if ( acts.llistaBuida() ) {
+                        System.out.println("No hi han activitats fetes per la entitat: " + nomEntitat);
+                    } else {
+                        System.out.println("ACTIVITATS donades per " + nomEntitat + ":\n" + acts.activitats());
+                    }
                     break;
                 case 3:
-
+                    dia  = demanarDiaActivitat();
+                    acts = activitats.getActivitatsPerDia( dia );
+                    if ( acts.llistaBuida() ) {
+                        System.out.println("No hi han activitats fetes el dia: " + dia);
+                    } else {
+                        System.out.println("ACTIVITATS fetes el dia " + dia + ":\n" + acts.activitats());
+                    }
                     break;
                 case 4:
 

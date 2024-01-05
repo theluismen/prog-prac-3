@@ -73,7 +73,6 @@ public class LlistaActivitats {
      * Metode que retorna una LlistaActivitats amb les activitats que pertanyin a la entitat
      * especificada per parametre.
      *
-     * @param  activitats   LlistaActivitats d'on es treuen les activitats indicades
      * @param  nomEntitat   Nom de la entitat que es volen retornar les activitats
      * @return LlistaActivitats   Conjunt de activitats que dona la entitat indicada
      */
@@ -101,6 +100,39 @@ public class LlistaActivitats {
         }
         return acts;
     }
+
+    /**
+     * Metode que retorna una LlistaActivitats amb les activitats que es realitzin
+     * en un dia especificat per parametre.
+     *
+     * @param  nomEntitat   Nom de la entitat que es volen retornar les activitats
+     * @return LlistaActivitats   Conjunt de activitats realitzades en un dia indicat
+     */
+    public LlistaActivitats getActivitatsPerDia ( int dia ) {
+        LlistaActivitats acts = new LlistaActivitats();
+        Xerrada xerrada; Visita visita; Taller taller;
+        int i;
+        for ( i = 0; i < this.nXerrades; i++ ) {
+            xerrada = this.getXerrada(i).copia();
+            if ( xerrada.getDia() == dia ) {
+                acts.addXerrada( xerrada );
+            }
+        }
+        for ( i = 0; i < this.nVisites; i++ ) {
+            visita = this.getVisita(i).copia();
+            if ( visita.getDia() == dia ) {
+                acts.addVisita( visita );
+            }
+        }
+        for ( i = 0; i < this.nTallers; i++ ) {
+            taller = this.getTaller(i).copia();
+            if ( taller.getDia() == dia ) {
+                acts.addTaller( taller );
+            }
+        }
+        return acts;
+    }
+
     /**
      * Metode que retorna una copia de la instancia indicada.
      * @param  index    Index del objecte a retornar
@@ -193,6 +225,17 @@ public class LlistaActivitats {
      */
     public boolean llistaPlena ( ) {
         return this.getNElem() >= this.getMida();
+    }
+
+    /**
+     * Metode que retorna un valor booleà: si la llista esta buida o no.
+     * true     en cas que sigui buida.
+     * false    en cas que NO sigui buida.
+     *
+     * @return llistaPlena
+     */
+    public boolean llistaBuida ( ) {
+        return this.getNElem() == 0;
     }
 
     /**
