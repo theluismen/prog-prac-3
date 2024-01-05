@@ -275,6 +275,44 @@ public class App {
         return dia;
 	}
 
+    private static void afegirNovaActivitat ( LlistaActivitats activitats ) {
+        String  nom, lloc, nomEntitat;
+        int     cpostal, dia;
+
+    }
+
+    /*
+    * Metode que retorna un valor boolea ( audioguia ) segons la entrada del
+    * usuari. Es valida la entrada.
+    * @return audioguia
+    */
+    private static boolean demanarAudioguia () {
+        String aux;
+
+        do {
+            System.out.print("Vols que la visita tingui audioguia?[s/n]: ");
+            aux = teclat.next();
+        } while ( ! aux.equalsIgnoreCase("s") && ! aux.equalsIgnoreCase("n"));
+
+        return ( aux.equalsIgnoreCase("s") ) ? true : false;
+    }
+
+    /*
+    * Metode que retorna un valor boolea ( adaptada ) segons la entrada del
+    * usuari. Es valida la entrada.
+    * @return adaptada
+    */
+    private static boolean demanarAdaptada () {
+        String aux;
+
+        do {
+            System.out.print("Vols que la visita estigui adaptada?[s/n]: ");
+            aux = teclat.next();
+        } while ( ! aux.equalsIgnoreCase("s") && ! aux.equalsIgnoreCase("n"));
+
+        return ( aux.equalsIgnoreCase("s") ) ? true : false;
+    }
+
     public static void main ( String[] args ) {
         /* LLISTES, VARIABLES, CONSTANTS */
         LlistaEntitats   entitats   = new LlistaEntitats(liniesFitxer(ArxiusApp.ARXIU_ENTITATS));
@@ -283,7 +321,8 @@ public class App {
         boolean sortir = false;
         int opcio;
         /* Variables d'ajut */
-        String nomEntitat; LlistaActivitats acts;
+        LlistaActivitats acts; String nomEntitat, aux;
+        boolean audioguia, adaptada;
         int dia;
 
         /* Carregar tota la informació del fitxer a les llistes */
@@ -329,7 +368,7 @@ public class App {
                     }
                     break;
                 case 5:
-                    System.out.println("text2");
+                    afegirNovaActivitat( activitats );
                     break;
                 case 6:
 
@@ -350,7 +389,16 @@ public class App {
 
                     break;
                 case 12:
-
+                    System.out.print("Nom de l'entitat: ");
+                    nomEntitat = teclat.next();
+                    audioguia  = demanarAudioguia();
+                    adaptada   = demanarAdaptada();
+                    acts       = activitats.getVisitesSegonsEntitatIBools(nomEntitat, audioguia, adaptada);
+                    if ( acts.llistaBuida() ) {
+                        System.out.println("No hi ha visites fetes per "+ nomEntitat + " o no hi ha visites que complexin les condicions." );
+                    } else {
+                        System.out.println("VISITES donades per " + nomEntitat + ":\n" + acts.visites());
+                    }
                     break;
                 case 13:
 

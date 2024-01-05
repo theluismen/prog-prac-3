@@ -149,6 +149,27 @@ public class LlistaActivitats {
     }
 
     /**
+     *  Metode que retorna una LlistaActivitats amb les visites organitzades per una entitat
+     *  Es te en compte si tenen audioguia o son adaptades.
+     *
+     * @param nomEnti       Nom de la entitat que es pasara per parametre
+     * @param audioguia     Si es vol amb audioguia o no
+     * @param adaptada      Si es vol adaptada o no
+     * @return
+     */
+    public LlistaActivitats getVisitesSegonsEntitatIBools( String nomEntitat, boolean audioguia, boolean adaptada) {
+        LlistaActivitats acts = new LlistaActivitats();
+        Visita visita;
+        for ( int i = 0; i < this.nVisites; i++){
+            visita = this.getVisita(i);
+            if( visita.getNomEntitat().equalsIgnoreCase(nomEntitat) && visita.esAudioguia() == audioguia && visita.esAdaptada() == adaptada){
+                acts.addVisita( visita );
+            }
+        }
+        return acts;
+    }
+
+    /**
      * Metode que retorna una copia de la instancia indicada.
      * @param  index    Index del objecte a retornar
      * @return Entitat  objecte a retornar
