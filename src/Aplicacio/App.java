@@ -221,8 +221,8 @@ public class App {
     private static void mostrarMenuOpcions() {
         System.out.println("[+] - MENU D'OPCIONS");
         System.out.println("    1 -> Mostrar les dades de qualsevol llista que tingueu definida");
-        // System.out.println("2 -> Obtenir i mostrar la llista d’activitats que ofereix una entitat concreta.");
-        // System.out.println("3 -> Obtenir i mostrar la llista de les activitats que es duen a terme en un dia indicat per teclat.");
+        System.out.println("    2 -> Obtenir i mostrar la llista d’activitats que ofereix una entitat concreta.");
+        System.out.println("    3 -> Obtenir i mostrar la llista de les activitats que es duen a terme en un dia indicat per teclat.");
         // System.out.println("4 -> Obtenir i mostrar la llista dels tallers que tenen places disponibles. ");
         // System.out.println("5 -> Afegir una nova activitat");
         // System.out.println("6 -> Registrar la petició d’un usuari per reservar un taller.");
@@ -321,7 +321,12 @@ public class App {
                     }
                     break;
                 case 4:
-
+                    acts = activitats.getTallersAmbPlacesLliures();
+                    if ( acts.llistaBuida() ) {
+                        System.out.println("No hi han tallers amb places lliures");
+                    } else {
+                        System.out.println("TALLERS amb places lliures:\n" + acts.tallers());
+                    }
                     break;
                 case 5:
                     System.out.println("text2");

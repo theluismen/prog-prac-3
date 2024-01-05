@@ -134,6 +134,21 @@ public class LlistaActivitats {
     }
 
     /**
+     * Metode que retorna una LlistaActivitats amb els Tallers que tenen places lliures
+     *
+     * @return LlistaActivitats   Conjunt de activitats
+     */
+    public LlistaActivitats getTallersAmbPlacesLliures () {
+        LlistaActivitats acts = new LlistaActivitats();
+        for ( int i = 0; i < this.nTallers; i++ ) {
+            if ( this.tallers[i].hiHaPlaceslliures() ) {
+                acts.addTaller( this.tallers[i].copia() );
+            }
+        }
+        return acts;
+    }
+
+    /**
      * Metode que retorna una copia de la instancia indicada.
      * @param  index    Index del objecte a retornar
      * @return Entitat  objecte a retornar

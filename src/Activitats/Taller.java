@@ -76,6 +76,17 @@ public class Taller extends Activitat {
     }
 
     /* METODOS: Varios */
+
+    /**
+    * Metode que retorna el valor boolea corresponent a si hi han places lliures
+    * al taller.
+    *
+    * @return placesLliures
+    */
+    public boolean hiHaPlaceslliures ( ) {
+        return this.getNLliures() > 0;
+    }
+
     /**
     * Metode realitza una reserva al taller actual.
     *
