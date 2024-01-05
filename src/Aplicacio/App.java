@@ -1,13 +1,21 @@
 package bin.Aplicacio;
 
+/* IMPORTAR: Excepcions */
 import java.io.*;
 import bin.Excepcions.TallerNoTrobatExcepcio;
+import java.util.InputMismatchException;
+/* IMPORTAR: Clases Propies */
 import bin.Entitats.LlistaEntitats;
 import bin.Usuaris.LlistaUsuaris;
 import bin.Reserves.LlistaReserves;
 import bin.Activitats.*;
+/* IMPORTAR: Clases Predefinides de Java */
+import java.util.Scanner;
 
 public class App {
+    /* Variables globals */
+    private static Scanner teclat = new Scanner(System.in);
+
     /**
      * Funcio que retorna la quantitat de linies del fitxer especificat
      *
@@ -210,27 +218,109 @@ public class App {
         carregarReserves(ArxiusApp.ARXIU_RESERVES, activitats);
     }
 
+    private static void mostrarMenuOpcions() {
+        System.out.println("[+] - MENU D'OPCIONS");
+        System.out.println("    1 -> Mostrar les dades de qualsevol llista que tingueu definida");
+        // System.out.println("2 -> Obtenir i mostrar la llista d’activitats que ofereix una entitat concreta.");
+        // System.out.println("3 -> Obtenir i mostrar la llista de les activitats que es duen a terme en un dia indicat per teclat.");
+        // System.out.println("4 -> Obtenir i mostrar la llista dels tallers que tenen places disponibles. ");
+        // System.out.println("5 -> Afegir una nova activitat");
+        // System.out.println("6 -> Registrar la petició d’un usuari per reservar un taller.");
+        // System.out.println("7 -> Mostrar els usuaris que s’han apuntat a un taller.");
+        // System.out.println("8 -> Calcular l’usuari que s’ha apuntat a més tallers.");
+        // System.out.println("9 -> Registrar la nota que un usuari que s’ha apuntat a un taller li dona un cop s’ha fet.");
+        // System.out.println("10 -> Calcular la nota mitja que ha rebut un taller");
+        // System.out.println("11 -> Quin és el taller que ha tingut més èxit? Calcularem l’èxit segons el taller que ha tingut una ocupació més alta en proporció a les places que oferia");
+        // System.out.println("12 -> Obtenir i mostrar les dades de la llista de visites ofertes per una entitat");
+        // System.out.println("13 -> Mostrar les dades de les xerrades que farà una persona concreta.");
+        // System.out.println("14 -> Donar de baixa un taller sempre que no hi hagi usuaris apuntats");
+        // System.out.println("15 -> Sortir de l’aplicació");
+    }
+
+    /*
+    * Funcio que retorna un nombre enter; la opcio que l'usuari
+    * escolleix.
+    * @return opcio Opcio del menu
+    */
+    private static int demanarOpcio() {
+		int opcio = -1;
+		do {
+			try {
+                System.out.print("[!] - Opcio: ");
+				opcio = teclat.nextInt();
+			} catch ( InputMismatchException  ex ) {
+				teclat.nextLine();
+                System.out.println("[X] - Escriu un valor numeric correcte del 1 al 15");
+			}
+		} while ( opcio < 1 || opcio > 15 );
+        return opcio;
+	}
+
     public static void main ( String[] args ) {
         /* LLISTES, VARIABLES, CONSTANTS */
         LlistaEntitats   entitats   = new LlistaEntitats(liniesFitxer(ArxiusApp.ARXIU_ENTITATS));
         LlistaUsuaris    usuaris    = new LlistaUsuaris(liniesFitxer(ArxiusApp.ARXIU_USUARIS));
         LlistaActivitats activitats = new LlistaActivitats();
+        boolean sortir = false;
+        int opcio;
 
         /* Carregar tota la informació del fitxer a les llistes */
         carregarInfoFitxers(entitats, usuaris, activitats);
 
-        // System.out.println(" <= ENTITATS => \n" + entitats.entitats());
-        // System.out.println();
-        // System.out.println(" <= USUARIS => \n" + usuaris.usuaris());
-        // System.out.println();
-        //
-        // System.out.println(" <= ACTIVITATS " + activitats.getNElem() + " => \n" + activitats.activitats());
-        // System.out.println();
-        // System.out.println();
-        // System.out.println(" <= RESERVES => ");
-        // System.out.println(activitats.reserves());
-        // System.out.println(activitats.getTaller(0).reserves());
+        /* INICI DEL PROGRAMA */
+        System.out.println("[+] - Comencant programa...");
+        do {
+            mostrarMenuOpcions();
+            opcio = demanarOpcio();
+            switch ( opcio ) {
+                case 1:
+                    System.out.println("text1");
+                    break;
+                case 2:
 
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+
+                    break;
+                case 5:
+                    System.out.println("text2");
+                    break;
+                case 6:
+
+                    break;
+                case 7:
+
+                    break;
+                case 8:
+
+                    break;
+                case 9:
+
+                    break;
+                case 10:
+
+                    break;
+                case 11:
+
+                    break;
+                case 12:
+
+                    break;
+                case 13:
+
+                    break;
+                case 14:
+
+                    break;
+                case 15:
+                    System.out.println("[-] - Sortint del programa...");
+                    sortir = true;
+                    break;
+            }
+        } while ( ! sortir );
 
     }
 }
