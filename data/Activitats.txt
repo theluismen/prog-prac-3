@@ -1,13 +1,13 @@
 EMP100;Programacion en Python;Barcelona;43000;15;EmpresaX;Nate Gentile
-SOL101;Experimento de Quimica en Casa;Reus;43200;12;SolucionesGlobalesS.L.;Experimentos Caseros
+SOL101;Experimento de Quimica en Casa;Reus;43200;12;SolucionesGlobalesSL;Experimentos Caseros
 PRO102;Charla sobre Inteligencia Artificial;Tarragona;43001;18;ProveedorInternacional;Jonah Jameson
 BLU103;Investigacion en I.A. Etica;Tarragona;43006;10;BlueSkyInnovations;Nate Gentile
-PRI104;Diseno de Paginas Web;Barcelona;43007;19;PrimeSuppliersInc.;Nate Gentile
-SMA105;Hackaton de Innovacion;Tarragona;43008;14;SmartTechCorp.;Betta Tech
+PRI104;Diseno de Paginas Web;Barcelona;43007;19;PrimeSuppliersInc;Nate Gentile
+SMA105;Hackaton de Innovacion;Tarragona;43008;14;SmartTechCorp;Betta Tech
 VIS106;Observacion Astronomica;Barcelona;43002;11;VisionaryEnterprises;true;true
 SUM107;Club de Ciencias Escolar;Tarragona;43004;13;SummitSuppliers;true;false
 GAL108;Club de Ciencias Juvenil;Reus;43202;16;GalaxyEnterprises;true;false
 ALP109;Desarrollo Sostenible;Barcelona;43009;11;AlphaSuppliers;false;true
 INN110;Creacion de un Blog de Ciencia;Reus;43201;14;InnovateTechSolutions;10;120;15
-QUA111;Desarrollo de Videojuegos;Barcelona;43003;17;QuantumDynamicsLtd.;10;120;15
-NEX112;Participacion en Hackaton;Barcelona;43005;16;NexusPartners;10;120;15
+QUA111;Desarrollo de Videojuegos;Barcelona;43003;17;QuantumDynamicsLtd;10;120;15
+NEX112;Participacion en Hackaton;Barcelona;43005;16;EmpresaX;10;120;15

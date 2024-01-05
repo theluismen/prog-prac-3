@@ -263,6 +263,8 @@ public class App {
         LlistaActivitats activitats = new LlistaActivitats();
         boolean sortir = false;
         int opcio;
+        /* Variables d'ajut */
+        String nomEntitat; LlistaActivitats acts;
 
         /* Carregar tota la informació del fitxer a les llistes */
         carregarInfoFitxers(entitats, usuaris, activitats);
@@ -280,7 +282,9 @@ public class App {
                     System.out.println("ACTIVITATS\nXERRADES\n" + activitats.xerrades() + "VISITES\n" + activitats.visites() + "TALLERS (amb les seves reserves)\n" + activitats.reserves());
                     break;
                 case 2:
-
+                    System.out.print("Nom de l'entitat: ");
+                    nomEntitat = teclat.next();
+                    System.out.println("ACTIVITATS donades per " + nomEntitat + ":\n" + activitats.getActivitatsPerNomEntitat( nomEntitat ).activitats());
                     break;
                 case 3:
 

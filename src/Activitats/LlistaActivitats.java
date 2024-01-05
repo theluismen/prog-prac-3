@@ -70,6 +70,38 @@ public class LlistaActivitats {
     }
 
     /**
+     * Metode que retorna una LlistaActivitats amb les activitats que pertanyin a la entitat
+     * especificada per parametre.
+     *
+     * @param  activitats   LlistaActivitats d'on es treuen les activitats indicades
+     * @param  nomEntitat   Nom de la entitat que es volen retornar les activitats
+     * @return LlistaActivitats   Conjunt de activitats que dona la entitat indicada
+     */
+    public LlistaActivitats getActivitatsPerNomEntitat ( String nomEntitat ) {
+        LlistaActivitats acts = new LlistaActivitats();
+        Xerrada xerrada; Visita visita; Taller taller;
+        int i;
+        for ( i = 0; i < this.nXerrades; i++ ) {
+            xerrada = this.getXerrada(i).copia();
+            if ( xerrada.getNomEntitat().equalsIgnoreCase(nomEntitat) ) {
+                acts.addXerrada( xerrada );
+            }
+        }
+        for ( i = 0; i < this.nVisites; i++ ) {
+            visita = this.getVisita(i).copia();
+            if ( visita.getNomEntitat().equalsIgnoreCase(nomEntitat) ) {
+                acts.addVisita( visita );
+            }
+        }
+        for ( i = 0; i < this.nTallers; i++ ) {
+            taller = this.getTaller(i).copia();
+            if ( taller.getNomEntitat().equalsIgnoreCase(nomEntitat) ) {
+                acts.addTaller( taller );
+            }
+        }
+        return acts;
+    }
+    /**
      * Metode que retorna una copia de la instancia indicada.
      * @param  index    Index del objecte a retornar
      * @return Entitat  objecte a retornar
