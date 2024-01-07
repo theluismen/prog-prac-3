@@ -4,7 +4,7 @@
 - [x] - Opcio 2
 - [x] - Opcio 3
 - [x] - Opcio 4
-- [ ] - Opcio 5
+- [x] - Opcio 5
 - [ ] - Opcio 6
 - [x] - Opcio 7
 - [ ] - Opcio 8
