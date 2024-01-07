@@ -228,7 +228,7 @@ public class App {
         System.out.println("    3 -> Obtenir i mostrar la llista de les activitats que es duen a terme en un dia indicat per teclat.");
         System.out.println("    4 -> Obtenir i mostrar la llista dels tallers que tenen places disponibles. ");
         System.out.println("    5 -> Afegir una nova activitat");
-        System.out.println("6 -> Registrar la petició d’un usuari per reservar un taller.");
+        System.out.println("    6 -> Registrar la petició d’un usuari per reservar un taller.");
         System.out.println("    7 -> Mostrar els usuaris que s’han apuntat a un taller.");
         // System.out.println("8 -> Calcular l’usuari que s’ha apuntat a més tallers.");
         // System.out.println("9 -> Registrar la nota que un usuari que s’ha apuntat a un taller li dona un cop s’ha fet.");
