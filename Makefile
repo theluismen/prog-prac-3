@@ -6,6 +6,9 @@ OUTPUT_DIR = .
 # Compilación archivo TallerNoTrobatExcepcio.class
 ./bin/Excepcions/TallerNoTrobatExcepcio.class: ./src/Excepcions/TallerNoTrobatExcepcio.java
 	javac -d . $<
+# Compilación archivo UsuariNoTrobatExcepcio.class
+./bin/Excepcions/UsuariNoTrobatExcepcio.class: ./src/Excepcions/UsuariNoTrobatExcepcio.java
+	javac -d . $<
 
 ## ARCHIVOS DE CLASES: Package Entitats ##
 # Compilación archivo Entitat.class
@@ -88,6 +91,7 @@ OUTPUT_DIR = .
 
 # Regla que obliga a ir compilando todos los archivos anteriores
 all: 	./bin/Excepcions/TallerNoTrobatExcepcio.class \
+	./bin/Excepcions/UsuariNoTrobatExcepcio.class \
 		./bin/Entitats/Entitat.class \
 		./bin/Entitats/LlistaEntitats.class \
 		./bin/Reserves/Reserva.class \

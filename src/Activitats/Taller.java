@@ -83,8 +83,8 @@ public class Taller extends Activitat {
     *
     * @return placesLliures
     */
-    public boolean hiHaPlaceslliures ( ) {
-        return this.getNLliures() > 0;
+    public boolean hiHaPlacesLliures ( ) {
+        return ! this.reserves.llistaPlena();
     }
 
     /**

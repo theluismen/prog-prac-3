@@ -2,7 +2,7 @@ package bin.Aplicacio;
 
 /* IMPORTAR: Excepcions */
 import java.io.*;
-import bin.Excepcions.TallerNoTrobatExcepcio;
+import bin.Excepcions.*;
 import java.util.InputMismatchException;
 /* IMPORTAR: Clases Propies */
 import bin.Entitats.LlistaEntitats;
@@ -227,8 +227,8 @@ public class App {
         System.out.println("    2 -> Obtenir i mostrar la llista d’activitats que ofereix una entitat concreta.");
         System.out.println("    3 -> Obtenir i mostrar la llista de les activitats que es duen a terme en un dia indicat per teclat.");
         System.out.println("    4 -> Obtenir i mostrar la llista dels tallers que tenen places disponibles. ");
-        // System.out.println("5 -> Afegir una nova activitat");
-        // System.out.println("6 -> Registrar la petició d’un usuari per reservar un taller.");
+        System.out.println("    5 -> Afegir una nova activitat");
+        System.out.println("6 -> Registrar la petició d’un usuari per reservar un taller.");
         System.out.println("    7 -> Mostrar els usuaris que s’han apuntat a un taller.");
         // System.out.println("8 -> Calcular l’usuari que s’ha apuntat a més tallers.");
         // System.out.println("9 -> Registrar la nota que un usuari que s’ha apuntat a un taller li dona un cop s’ha fet.");
@@ -474,7 +474,7 @@ public class App {
         boolean sortir = false;
         int opcio;
         /* Variables d'ajut */
-        LlistaActivitats acts; String nomEntitat, nomAutor, codiTaller;
+        LlistaActivitats acts; String nomEntitat, nomAutor, codiTaller, aliesUsuari;
         boolean audioguia, adaptada;
         Taller tallerAux;
         int dia;
@@ -526,7 +526,28 @@ public class App {
                     afegirNovaActivitat( activitats );
                     break;
                 case 6:
-
+                    System.out.print("Codi Taller: ");
+                    codiTaller = teclat.next();
+                    try {
+                        tallerAux  = activitats.getTallerPerCodi(codiTaller); // No passa res per treballar sobre la referencia, enlloc d'una copia
+                        if ( tallerAux.hiHaPlacesLliures() ) {
+                            System.out.print("Nom Usuari: ");
+                            aliesUsuari = teclat.next();
+                            try {
+                                if ( tallerAux.ferReserva( usuaris.getUsuariPerNom(aliesUsuari).getAlies() )) {
+                                    System.out.println("Usuari: " + aliesUsuari + ", afegit al taller " + codiTaller);
+                                } else {
+                                    System.out.println("No s'ha pogut afegir l'usuri al taller");
+                                }
+                            } catch ( UsuariNoTrobatExcepcio ex ) {
+                                System.out.println(ex.toString() );
+                            }
+                        } else {
+                            System.out.println("No hi ha places lliures per al taller " + codiTaller );
+                        }
+                    } catch ( TallerNoTrobatExcepcio ex ) {
+                        System.out.println(ex.toString() );
+                    }
                     break;
                 case 7:
                     System.out.print("Codi del taller");

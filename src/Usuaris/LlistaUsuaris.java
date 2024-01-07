@@ -1,5 +1,7 @@
 package bin.Usuaris;
 
+import bin.Excepcions.UsuariNoTrobatExcepcio;
+
 public class LlistaUsuaris {
     /* ATRIBUTOS */
     private int         nElem;
@@ -27,6 +29,26 @@ public class LlistaUsuaris {
      */
     public Usuari getUsuari ( int index ) {
         return this.llista[index].copia();
+    }
+
+    /**
+     * Metode que retorna el usuari que tingui el mateix nom que el que
+     * es passa per parametre. NO RETORNA COPIA
+     * @param  codi     Codi del Taller a buscar
+     * @return Taller   Taller que te el codi indicat
+     */
+    public Usuari getUsuariPerNom ( String aliesUsuari ) throws UsuariNoTrobatExcepcio {
+        int i; boolean trobat = false;
+        for ( i = 0; i < this.nElem && ! trobat; i++ ) {
+            if ( this.llista[i].getAlies().equals(aliesUsuari) ) {
+                trobat = true;
+            }
+        }
+        if ( ! trobat ) {
+            throw new UsuariNoTrobatExcepcio( aliesUsuari );
+        } else {
+            return this.llista[i-1];
+        }
     }
 
     /**
