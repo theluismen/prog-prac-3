@@ -141,7 +141,7 @@ public class LlistaActivitats {
     public LlistaActivitats getTallersAmbPlacesLliures () {
         LlistaActivitats acts = new LlistaActivitats();
         for ( int i = 0; i < this.nTallers; i++ ) {
-            if ( this.tallers[i].hiHaPlaceslliures() ) {
+            if ( this.tallers[i].hiHaPlacesLliures() ) {
                 acts.addTaller( this.tallers[i].copia() );
             }
         }

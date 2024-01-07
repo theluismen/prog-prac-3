@@ -168,6 +168,46 @@ public class App {
     }
 
     /**
+     * Funcio que guarda les Activitats al fitxer
+     *
+     * @param   filename    Nom del fixer on hi han les dades
+     * @param   llista      Llista que guardara les activitats
+     */
+    private static void desarActivitats ( final String filename, LlistaActivitats activitats ) {
+        BufferedWriter br;
+        int i;
+        try {
+            br = new BufferedWriter( new FileWriter( filename ) );
+            /* Guardar Xerrades */
+            i = 0;
+            while ( i < activitats.getNXerrades() ) {
+                br.write(activitats.getXerrada(i).toStringCSV());
+                br.newLine();
+                i++;
+            }
+            /* Guardar Visites */
+            i = 0;
+            while ( i < activitats.getNVisites() ) {
+                br.write(activitats.getVisita(i).toStringCSV());
+                br.newLine();
+                i++;
+            }
+            /* Guardar Xerrades */
+            i = 0;
+            while ( i < activitats.getNTallers() ) {
+                br.write(activitats.getTaller(i).toStringCSV());
+                br.newLine();
+                i++;
+            }
+            br.close();
+        } catch ( FileNotFoundException e ) {
+            System.out.println( e.getMessage() );
+        } catch ( IOException e ) {
+            System.out.println( e.getMessage() );
+        }
+    }
+
+    /**
     * Funcio que llegeix la informacio del fitxer de Reserves
     *
     * @param   filename    Nom del fixer on hi han les dades
@@ -415,6 +455,21 @@ public class App {
     }
 
     /*
+    * Metode que retorna un valor boolea ( adaptada ) segons si es vol guardar la informacio o no.
+    * @return siono siono
+    */
+    private static boolean demanarGuardarInfor () {
+        String aux;
+
+        do {
+            System.out.print("Vols guardar la info?[s/n]: ");
+            aux = teclat.next();
+        } while ( ! aux.equalsIgnoreCase("s") && ! aux.equalsIgnoreCase("n"));
+
+        return ( aux.equalsIgnoreCase("s") ) ? true : false;
+    }
+
+    /*
     * Funcio que afegeix una activitat.
     * @param activitats La llista on afegir la activitat
     */
@@ -475,7 +530,7 @@ public class App {
         int opcio;
         /* Variables d'ajut */
         LlistaActivitats acts; String nomEntitat, nomAutor, codiTaller, aliesUsuari;
-        boolean audioguia, adaptada;
+        boolean audioguia, adaptada, guardar;
         Taller tallerAux;
         int dia;
 
@@ -602,7 +657,12 @@ public class App {
                     break;
                 case 15:
                     System.out.println("[-] - Sortint del programa...");
-                    sortir = true;
+                    sortir  = true;
+                    guardar = demanarGuardarInfor();
+                    if ( guardar ) {
+                        // desarActivitats(ArxiusApp.ARXIU_ACTIVITATS, activitats);
+                        desarActivitats("mami.txt", activitats);
+                    }
                     break;
             }
         } while ( ! sortir );

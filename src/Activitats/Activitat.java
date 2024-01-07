@@ -175,6 +175,16 @@ public class Activitat {
     }
 
     /**
+    * Metode que retorna un String que conte informació
+    * de l'objecte en CSV.
+    *
+    * @return  String  String que conte informació
+    */
+    public String toStringCSV ( ) {
+        return String.join(";", this.codi, this.nom, this.lloc, String.valueOf(this.cpostal), String.valueOf(this.dia), this.nomEntitat);
+    }
+
+    /**
     * Metode que retorna una copia de l'instancia
     *
     * @return entitat  Copia de l'activitat

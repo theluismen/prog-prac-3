@@ -131,6 +131,15 @@ public class Taller extends Activitat {
     *
     * @return entitat  Copia de l'entitat
     */
+    public String toStringCSV () {
+        return String.join(";", super.toStringCSV(), String.valueOf(this.hora), String.valueOf(this.durada), String.valueOf(this.getCapacitat()));
+    }
+
+    /**
+    * Metode que retorna una copia de l'instancia
+    *
+    * @return entitat  Copia de l'entitat
+    */
     public Taller copia () {
         return new Taller ( this.getCodi(), this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getNomEntitat(), this.hora, this.durada, this.getCapacitat());
     }

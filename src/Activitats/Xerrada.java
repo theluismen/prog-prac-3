@@ -62,4 +62,13 @@ public class Xerrada extends Activitat {
     public String toString() {
         return "Xerrada [ " + String.join(":", super.toString(), this.hora+"h", this.nomAutor) + "]";
     }
+
+    /**
+     * Metode que retorna un String que conte les dades del objecte
+     *
+     * @return nomAutor     Autor de la xerrada
+     */
+    public String toStringCSV() {
+        return String.join(";", super.toStringCSV(), this.nomAutor);
+    }
 }

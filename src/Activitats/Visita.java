@@ -72,8 +72,11 @@ public class Visita extends Activitat{
         return new Visita ( this.getCodi(), this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getNomEntitat(), this.audioguia, this.adaptada);
     }
 
-    @Override
     public String toString() {
         return "Visita  [ " + String.join(":", super.toString(), "autog=" + String.valueOf(this.audioguia), "adapt=" + String.valueOf(this.adaptada)) +"]";
+    }
+
+    public String toStringCSV() {
+        return String.join(";", super.toStringCSV(), String.valueOf(this.audioguia), String.valueOf(this.adaptada));
     }
 }
