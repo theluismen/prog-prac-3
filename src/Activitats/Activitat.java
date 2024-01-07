@@ -44,6 +44,7 @@ public class Activitat {
         this.cpostal    = cpostal;
         this.dia        = dia;
         this.nomEntitat = nomEntitat;
+        codiIndex       = Integer.parseInt(codi.substring(3,6)) + 1;
     }
 
     /* METODOS */

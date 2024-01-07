@@ -262,7 +262,7 @@ public class App {
     /*
     * Funcio que retorna un nombre enter; el dia en que es realitza
     * una activitat.
-    * @return opcio Opcio del menu
+    * @return dia dia
     */
     private static int demanarDiaActivitat() {
 		int dia = -1;
@@ -278,10 +278,108 @@ public class App {
         return dia;
 	}
 
-    private static void afegirNovaActivitat ( LlistaActivitats activitats ) {
-        String  nom, lloc, nomEntitat;
-        int     cpostal, dia;
+    /*
+    * Funcio que retorna un nombre enter; la hora en que es realitza
+    * una Taller.
+    * @return hora hora
+    */
+    private static int demanarHora() {
+		int hora = -1;
+		do {
+			try {
+                System.out.print("Hora: ");
+				hora = teclat.nextInt();
+			} catch ( InputMismatchException  ex ) {
+				teclat.nextLine();
+                System.out.println(" Escriu un valor numeric correcte del 0 al 23");
+			}
+		} while ( hora < 0 || hora > 23 );
+        return hora;
+	}
 
+    /*
+    * Funcio que retorna un nombre enter; la durada d'un Taller.
+    * @return durada durada
+    */
+    private static int demanarDurada() {
+		int durada = -1;
+		do {
+			try {
+                System.out.print("Durada[min]: ");
+				durada = teclat.nextInt();
+			} catch ( InputMismatchException  ex ) {
+				teclat.nextLine();
+                System.out.println(" Escriu un valor numeric correcte");
+			}
+		} while ( durada <= 0 );
+        return durada;
+	}
+
+    /*
+    * Funcio que retorna un nombre enter; la capacitat d'un Taller.
+    * @return capacitat capacitat
+    */
+    private static int demanarCapacitat() {
+		int capacitat = -1;
+		do {
+			try {
+                System.out.print("Capacitat: ");
+				capacitat = teclat.nextInt();
+			} catch ( InputMismatchException  ex ) {
+				teclat.nextLine();
+                System.out.println(" Escriu un valor numeric correcte");
+			}
+		} while ( capacitat <= 0 );
+        return capacitat;
+	}
+
+    /*
+    * Funcio que retorna un String; el nom de una entitat.
+    * @return nomEntitat nomEntitat
+    */
+    private static String demanarNomEntitat() {
+		String nomEntitat;
+		do {
+            System.out.print("Nom Entitat: ");
+			nomEntitat = teclat.next();
+		} while ( nomEntitat.length() < 3 );
+        return nomEntitat;
+	}
+
+    /*
+    * Funcio que retorna un nombre enter; el fckin codigo postal.
+    * @return cpostal cpostal
+    */
+    private static int demanarCPostal() {
+        int cpostal = 0;
+        do {
+            try {
+                System.out.print("Codi Postal: ");
+                cpostal = teclat.nextInt();
+            } catch ( InputMismatchException ex ) {
+                teclat.nextLine();
+                System.out.println(" Escriu un valor numeric correcte");
+            }
+        } while ( cpostal < 43000 || cpostal > 43999 );
+        return cpostal;
+    }
+
+    /*
+    * Funcio que retorna un nombre enter; el tipus de la activitat.
+    * @return tipus tipus
+    */
+    private static int demanarTipusActivitat() {
+        int tipus = 0;
+        do {
+            try {
+                System.out.print("Tipus: ");
+                tipus = teclat.nextInt();
+            } catch ( InputMismatchException ex ) {
+                teclat.nextLine();
+                System.out.println(" Escriu un valor numeric correcte del 1 al 3");
+            }
+        } while ( tipus < 1 || tipus > 3 );
+        return tipus;
     }
 
     /*
@@ -314,6 +412,58 @@ public class App {
         } while ( ! aux.equalsIgnoreCase("s") && ! aux.equalsIgnoreCase("n"));
 
         return ( aux.equalsIgnoreCase("s") ) ? true : false;
+    }
+
+    /*
+    * Funcio que afegeix una activitat.
+    * @param activitats La llista on afegir la activitat
+    */
+    private static void afegirNovaActivitat ( LlistaActivitats activitats ) {
+        /* Dades especifiques de Activitat */
+        String  nom, lloc, nomEntitat;
+        int     cpostal = 0, dia;
+        int     tipus   = 0;
+
+        System.out.println("Afegint activitat. Demanant dades basiques...");
+        /* Demanar Nom */
+        System.out.print("Nom: ");
+        nom  = teclat.nextLine();
+        /* Demanar LLoc */
+        System.out.print("Lloc: ");
+        lloc = teclat.next();
+        /* Demanar Codi Postal */
+        cpostal = demanarCPostal();
+        /* Demanar Dia */
+        dia     = demanarDiaActivitat();
+        /* Demanar Nom Entitat */
+        nomEntitat = demanarNomEntitat();
+        /* Demanar Tipus Activitat */
+        System.out.println("Selecciona tipus d'activitat:");
+        System.out.println("   1 - Xerrada");
+        System.out.println("   2 - Visita");
+        System.out.println("   3 - Taller");
+        /* Validar entrada Tipus Activitat */
+        tipus = demanarTipusActivitat();
+        teclat.nextLine();
+        /*  */
+        switch ( tipus ) {
+            case 1:     // Xerrada
+                System.out.print("Nom Autor: ");
+                String nomAutor = teclat.nextLine();
+                activitats.addXerrada( new Xerrada( nom, lloc, cpostal, dia, nomEntitat, nomAutor) );
+                break;
+            case 2:     // Visita
+                boolean audioguia = demanarAudioguia();
+                boolean adaptada  = demanarAdaptada();
+                activitats.addVisita( new Visita( nom, lloc, cpostal, dia, nomEntitat, audioguia, adaptada ) );
+                break;
+            case 3:     // Taller
+                int hora      = demanarHora();
+                int durada    = demanarDurada();
+                int capacitat = demanarCapacitat();
+                activitats.addTaller( new Taller( nom, lloc, cpostal, dia, nomEntitat, hora, durada, capacitat ) );
+                break;
+        }
     }
 
     public static void main ( String[] args ) {
@@ -435,5 +585,6 @@ public class App {
                     break;
             }
         } while ( ! sortir );
+        teclat.close();
     }
 }
