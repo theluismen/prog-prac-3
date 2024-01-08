@@ -22,6 +22,13 @@ public class Usuari {
         this.tallers = 0;
     }
 
+    public Usuari ( String alies, String correu, int cpostal, int tallers ) {
+        this.alies   = alies;
+        this.correu  = correu;
+        this.cpostal = cpostal;
+        this.tallers = tallers;
+    }
+
     /* METODOS */
     /* METODOS: Setters */
     /**
@@ -80,6 +87,15 @@ public class Usuari {
     }
 
     /**
+    * Getter de l'atribut this.tallers
+    *
+    * @return tallers     tallers
+    */
+    public int getTallers ( ) {
+        return this.tallers;
+    }
+
+    /**
     * Incrementa el contador de tallers apuntats
     */
     public void incTallers ( ) {
@@ -93,7 +109,7 @@ public class Usuari {
     * @return entitat  Copia de l'entitat
     */
     public Usuari copia ( ) {
-        return new Usuari ( this.alies, this.correu, this.cpostal );
+        return new Usuari ( this.alies, this.correu, this.cpostal, this.tallers );
     }
 
     /**

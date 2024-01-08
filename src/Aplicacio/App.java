@@ -213,7 +213,7 @@ public class App {
     * @param   filename    Nom del fixer on hi han les dades
     * @param   llista      Llista que guardara les reserves
     */
-    private static void carregarReserves  ( final String filename, LlistaActivitats activitats ) {
+    private static void carregarReserves  ( final String filename, LlistaActivitats activitats, LlistaUsuaris usuaris ) {
         BufferedReader br; String linia;
         String[] dades; String aliesUsuari, coditaller;  // Informacio del Usuari llegit
         try {
@@ -228,7 +228,10 @@ public class App {
                 /* Afegir una nova Reserva amb la informacio llegida */
                 try {
                     activitats.getTallerPerCodi(coditaller).ferReserva( aliesUsuari );
+                    usuaris.getUsuariPerNom(aliesUsuari).incTallers();
                 } catch ( TallerNoTrobatExcepcio ex ) {
+                    System.out.println(ex.toString());
+                } catch ( UsuariNoTrobatExcepcio ex ) {
                     System.out.println(ex.toString());
                 }
                 /* Tornar a Llegir linia */
@@ -279,7 +282,7 @@ public class App {
         carregarEntitats(ArxiusApp.ARXIU_ENTITATS, entitats);
         carregarUsuaris(ArxiusApp.ARXIU_USUARIS, usuaris);
         carregarActivitats(ArxiusApp.ARXIU_ACTIVITATS, activitats);
-        carregarReserves(ArxiusApp.ARXIU_RESERVES, activitats);
+        carregarReserves(ArxiusApp.ARXIU_RESERVES, activitats, usuaris);
     }
 
     /*
@@ -294,7 +297,7 @@ public class App {
         System.out.println("    5  -> Afegir una nova activitat");
         System.out.println("    6  -> Registrar un usuari a taller");
         System.out.println("    7  -> Mostrar usuaris apuntats a un taller");
-        // System.out.println("8 -> Calcular l’usuari que s’ha apuntat a més tallers.");
+        System.out.println("    8  -> Calcular l’usuari que s’ha apuntat a més tallers");
         // System.out.println("9 -> Registrar la nota que un usuari que s’ha apuntat a un taller li dona un cop s’ha fet.");
         // System.out.println("10 -> Calcular la nota mitja que ha rebut un taller");
         // System.out.println("11 -> Quin és el taller que ha tingut més èxit? Calcularem l’èxit segons el taller que ha tingut una ocupació més alta en proporció a les places que oferia");
@@ -634,6 +637,7 @@ public class App {
                                 if ( ! tallerAux.hiHaUsuari( aliesUsuari ) ) {
                                     if ( tallerAux.ferReserva( usuaris.getUsuariPerNom(aliesUsuari).getAlies() )) {
                                         System.out.println("Usuari: " + aliesUsuari + ", afegit al taller " + codiTaller);
+                                        usuaris.getUsuariPerNom(aliesUsuari).incTallers();
                                     } else {
                                         System.out.println("No s'ha pogut afegir l'usuri al taller");
                                     }
@@ -665,7 +669,7 @@ public class App {
                     }
                     break;
                 case 8:
-
+                    System.out.println("Usuari en més tallers apuntats es: " + usuaris.getUsuariMesApuntat());
                     break;
                 case 9:
                     System.out.print("Codi Taller: ");
@@ -690,7 +694,18 @@ public class App {
                     }
                     break;
                 case 10:
+                    System.out.print("Codi del taller: ");
+                    codiTaller = teclat.next();
+                    try {
+                        tallerAux  = activitats.getTallerPerCodi(codiTaller); // No passa res per treballar sobre la referencia, enlloc d'una copia
+                        try {
 
+                        } catch ( NoHiHanValoracionsExcepcio ex ) {
+                            System.out.println( ex.toString() );
+                        }
+                    } catch ( TallerNoTrobatExcepcio ex ) {
+                        System.out.println( ex.toString() );
+                    }
                     break;
                 case 11:
 

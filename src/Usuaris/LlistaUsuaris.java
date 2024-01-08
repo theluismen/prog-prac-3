@@ -51,6 +51,21 @@ public class LlistaUsuaris {
         }
     }
 
+    public String getUsuariMesApuntat () {
+        String aliesUsuari;
+        int i = 1, j = 0;
+        int n, max = this.llista[0].getTallers();
+        while ( i < this.getNElem() ) {
+            n = this.llista[i].getTallers();
+            if ( n > max ) {
+                max = n;
+                j = i;
+            }
+            i++;
+        }
+        return this.llista[j].getAlies();
+    }
+
     /**
     * Metode que retorna la quantitat d'elements
     * emmagatzemats a la llista.

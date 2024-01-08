@@ -1,5 +1,6 @@
 package bin.Activitats;
 
+import bin.Excepcions.NoHiHanValoracionsExcepcio;
 import bin.Entitats.Entitat;
 import bin.Reserves.*;
 import bin.Usuaris.Usuari;
@@ -82,6 +83,27 @@ public class Taller extends Activitat {
     */
     public int getNLliures () {
         return this.reserves.getMida() - this.reserves.getNElem();
+    }
+
+    /**
+    * Getter del nombre de places lliures.
+    *
+    * @return places Nombre de places lliures.
+    */
+    public double getValoracioMitja () throws NoHiHanValoracionsExcepcio {
+        int valoracions = 0, suma = 0, n;
+        for ( int i = 0; i < this.reserves.getNElem(); i++ ) {
+            n = this.reserves.getReserva(i).getValoracio();
+            if ( n >= 0 ) {
+                valoracions++;
+                suma += n;
+            }
+        }
+        if ( valoracions == 0 ) {
+            throw new NoHiHanValoracionsExcepcio();
+        } else {
+            return suma / valoracions;
+        }
     }
 
     /* METODOS: Varios */
