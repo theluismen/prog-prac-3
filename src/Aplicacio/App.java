@@ -298,8 +298,8 @@ public class App {
         System.out.println("    6  -> Registrar un usuari a taller");
         System.out.println("    7  -> Mostrar usuaris apuntats a un taller");
         System.out.println("    8  -> Calcular l’usuari que s’ha apuntat a més tallers");
-        // System.out.println("9 -> Registrar la nota que un usuari que s’ha apuntat a un taller li dona un cop s’ha fet.");
-        // System.out.println("10 -> Calcular la nota mitja que ha rebut un taller");
+        System.out.println("    9  -> Registrar la nota que un usuari que s’ha apuntat a un taller li dona un cop s’ha fet.");
+        System.out.println("   10  -> Calcular la nota mitja que ha rebut un taller");
         // System.out.println("11 -> Quin és el taller que ha tingut més èxit? Calcularem l’èxit segons el taller que ha tingut una ocupació més alta en proporció a les places que oferia");
         System.out.println("    12 -> Mostrar les dades de les visites ofertes per una entitat");
         System.out.println("    13 -> Mostrar les dades de les xerrades que farà una persona concreta.");
@@ -636,7 +636,7 @@ public class App {
                             try {
                                 if ( ! tallerAux.hiHaUsuari( aliesUsuari ) ) {
                                     if ( tallerAux.ferReserva( usuaris.getUsuariPerNom(aliesUsuari).getAlies() )) {
-                                        System.out.println("Usuari: " + aliesUsuari + ", afegit al taller " + codiTaller);
+                                        System.out.println("Usuari: " + aliesUsuari + ", afegit al taller " + codiTaller.toUpperCase());
                                         usuaris.getUsuariPerNom(aliesUsuari).incTallers();
                                     } else {
                                         System.out.println("No s'ha pogut afegir l'usuri al taller");
@@ -648,7 +648,7 @@ public class App {
                                 System.out.println(ex.toString() );
                             }
                         } else {
-                            System.out.println("No hi ha places lliures per al taller " + codiTaller );
+                            System.out.println("No hi ha places lliures per al taller " + codiTaller.toUpperCase() );
                         }
                     } catch ( TallerNoTrobatExcepcio ex ) {
                         System.out.println(ex.toString() );
@@ -662,7 +662,7 @@ public class App {
                         if ( ! tallerAux.hiHaReservesFetes() ) {
                             System.out.println("No hi ha reserves fetes al taller " + codiTaller );
                         } else {
-                            System.out.println("Reserves fetes per al taller " + codiTaller + ":\n" + tallerAux.reserves());
+                            System.out.println("Reserves fetes per al taller " + codiTaller.toUpperCase() + ":\n" + tallerAux.reserves());
                         }
                     } catch ( TallerNoTrobatExcepcio ex ) {
                         System.out.println(ex.toString() );
@@ -684,7 +684,7 @@ public class App {
                                 tallerAux.ferValoracio(aliesUsuari, valoracio);
                                 System.out.println("Valoracio guardada");
                             } else {
-                                System.out.println("L'usuari " + aliesUsuari + " no pretany al taller " + codiTaller);
+                                System.out.println("L'usuari " + aliesUsuari + " no pretany al taller " + codiTaller.toUpperCase());
                             }
                         } else {
                             System.out.println("No hi han usuaris");
@@ -699,7 +699,7 @@ public class App {
                     try {
                         tallerAux  = activitats.getTallerPerCodi(codiTaller); // No passa res per treballar sobre la referencia, enlloc d'una copia
                         try {
-
+                            System.out.println("Valoracio Mitja del taller " + codiTaller.toUpperCase() + ": " + tallerAux.getValoracioMitja());
                         } catch ( NoHiHanValoracionsExcepcio ex ) {
                             System.out.println( ex.toString() );
                         }
@@ -739,7 +739,7 @@ public class App {
                         tallerAux  = activitats.getTallerPerCodi(codiTaller); // No passa res per treballar sobre la referencia, enlloc d'una copia
                         if ( ! tallerAux.hiHaReservesFetes() ) {
                             activitats.eliminaTallerPerCodi(codiTaller);
-                            System.out.println("Taller " + codiTaller + " ha sigut eliminat");
+                            System.out.println("Taller " + codiTaller.toUpperCase() + " ha sigut eliminat");
                         } else {
                             System.out.println("No es pot eliminar hi ha reserves fetes.");
                         }

@@ -9,7 +9,7 @@
 - [x] - Opcio 7
 - [x] - Opcio 8
 - [x] - Opcio 9
-- [ ] - Opcio 10
+- [x] - Opcio 10
 - [ ] - Opcio 11
 - [x] - Opcio 12
 - [x] - Opcio 13
