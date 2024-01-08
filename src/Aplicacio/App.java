@@ -244,6 +244,30 @@ public class App {
     }
 
     /**
+     * Funcio que guarda les Reserves al fitxer
+     *
+     * @param   filename    Nom del fixer on hi han les dades
+     * @param   llista      Llista que guardara les activitats
+     */
+    private static void desarReserves ( final String filename, LlistaActivitats activitats ) {
+        BufferedWriter br;
+        int i;
+        try {
+            br = new BufferedWriter( new FileWriter( filename ) );
+            i = 0;
+            while ( i < activitats.getNTallers() ) {
+                br.write(activitats.getTaller(i).reservesCSV());
+                i++;
+            }
+            br.close();
+        } catch ( FileNotFoundException e ) {
+            System.out.println( e.getMessage() );
+        } catch ( IOException e ) {
+            System.out.println( e.getMessage() );
+        }
+    }
+
+    /**
     * Funcio que llegeix TOTA la informacio dels fitxer de dades
     *
     * @param   entitats    Objecte tipus LlistaEntitats
@@ -661,7 +685,7 @@ public class App {
                     guardar = demanarGuardarInfor();
                     if ( guardar ) {
                         // desarActivitats(ArxiusApp.ARXIU_ACTIVITATS, activitats);
-                        desarActivitats("mami.txt", activitats);
+                        // desarReserves("mami.txt", activitats);
                     }
                     break;
             }

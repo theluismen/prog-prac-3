@@ -1,7 +1,7 @@
 package bin.Activitats;
 
 import bin.Entitats.Entitat;
-import bin.Reserves.LlistaReserves;
+import bin.Reserves.*;
 import bin.Usuaris.Usuari;
 
 // Clase Taller ( filla de Activitat )
@@ -55,6 +55,15 @@ public class Taller extends Activitat {
     */
     public int getCapacitat () {
         return this.reserves.getMida();
+    }
+
+    /**
+    * Getter de la capacitat del taller
+    *
+    * @return this.capacitat  Capacitat del taller
+    */
+    public Reserva getReserva ( int index ) {
+        return this.reserves.getReserva(index);
     }
 
     /**
@@ -141,14 +150,36 @@ public class Taller extends Activitat {
     * @return entitat  Copia de l'entitat
     */
     public Taller copia () {
-        return new Taller ( this.getCodi(), this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getNomEntitat(), this.hora, this.durada, this.getCapacitat());
+        Taller nou = new Taller ( this.getCodi(), this.getNom(), this.getLloc(), this.getCPostal(), this.getDia(), this.getNomEntitat(), this.hora, this.durada, this.getCapacitat());
+        copiarReserves(this, nou);
+        return nou;
+    }
+
+    /**
+    * Metode que copia reserves d'un taller a l'altre.
+    *
+    * @param origen Taller d'origen
+    * @param desti  Taller desti
+    */
+    private void copiarReserves ( Taller origen, Taller desti ) {
+        int i;
+        for ( i = 0; i < origen.getNReservas(); i++ ) {
+            desti.ferReserva(origen.getReserva(i).getAliesUsuari());
+        }
     }
 
     /**
      * Metode mostra informacio dels objectes emmaatzemats.
      *
      */
-     public String reserves () {
-         return this.reserves.reserves();
-     }
+    public String reserves () {
+        return this.reserves.reserves();
+    }
+    /**
+     * Metode mostra informacio dels objectes per a guardar en fitxer.
+     *
+     */
+    public String reservesCSV () {
+        return this.reserves.reservesCSV();
+    }
 }

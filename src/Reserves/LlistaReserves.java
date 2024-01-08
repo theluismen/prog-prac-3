@@ -108,4 +108,18 @@ public class LlistaReserves {
         }
         return all;
     }
+
+    /**
+     * Metode que retorna informacio del tots
+     * objectes emmaatzemats.
+     *
+     */
+    public String reservesCSV ( ) {
+        String all = new String("");
+        int i;
+        for ( i = 0; i < this.nElem; i++ ) {
+            all += this.llista[i].toStringCSV() + "\n";
+        }
+        return all;
+    }
 }

@@ -132,4 +132,14 @@ public class Reserva {
     public String toString ( ) {
         return String.join(":", String.valueOf(this.codi), this.aliesUsuari, this.codiTaller, String.valueOf(this.valoracio));
     }
+
+    /**
+    * Metode que retorna un String que conte informació
+    * de l'objecte.
+    *
+    * @return  String  String que conte informació
+    */
+    public String toStringCSV ( ) {
+        return String.join(";", this.aliesUsuari, this.codiTaller);
+    }
 }
