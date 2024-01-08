@@ -106,6 +106,17 @@ public class Taller extends Activitat {
         }
     }
 
+    /**
+    * Getter del nombre de places lliures.
+    *
+    * @return places Nombre de places lliures.
+    */
+    public double exit () {
+        System.out.println(this.getNReservas());
+        System.out.println(this.getCapacitat());
+        return 100 * (((double)this.getNReservas()) / ((double)this.getCapacitat()));
+    }
+
     /* METODOS: Varios */
 
     /**

@@ -708,7 +708,8 @@ public class App {
                     }
                     break;
                 case 11:
-
+                    tallerAux = activitats.getTallerMesExitos();
+                    System.out.println("el Taller mes exitos es " + tallerAux.getCodi() + " amb " + tallerAux.exit() + "%");
                     break;
                 case 12:
                     System.out.print("Nom de l'entitat: ");

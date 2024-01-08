@@ -148,6 +148,20 @@ public class LlistaActivitats {
         return acts;
     }
 
+    public Taller getTallerMesExitos () {
+        double max = this.tallers[0].exit(), n;
+        int i = 1, j = 0;
+        while ( i < this.nTallers ) {
+            n = this.tallers[i].exit();
+            if ( n > max ) {
+                max = n;
+                j = i;
+            }
+            i++;
+        }
+        return this.tallers[j].copia();
+    }
+
     /**
      *  Metode que retorna una LlistaActivitats amb les visites organitzades per una entitat
      *  Es te en compte si tenen audioguia o son adaptades.
