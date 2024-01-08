@@ -287,21 +287,21 @@ public class App {
     */
     private static void mostrarMenuOpcions() {
         System.out.println("[+] - MENU D'OPCIONS");
-        System.out.println("    1  -> Mostrar les dades de qualsevol llista que tingueu definida");
-        System.out.println("    2  -> Obtenir i mostrar la llista d’activitats que ofereix una entitat concreta.");
-        System.out.println("    3  -> Obtenir i mostrar la llista de les activitats que es duen a terme en un dia indicat per teclat.");
-        System.out.println("    4  -> Obtenir i mostrar la llista dels tallers que tenen places disponibles. ");
+        System.out.println("    1  -> Mostrar TOTES les dades");
+        System.out.println("    2  -> Mostrar les activitats que ofereix una entitat concreta");
+        System.out.println("    3  -> Mostrar les activitats que es fan un dia concret");
+        System.out.println("    4  -> Mostrar els tallers amb places lliures");
         System.out.println("    5  -> Afegir una nova activitat");
-        System.out.println("    6  -> Registrar la petició d’un usuari per reservar un taller.");
-        System.out.println("    7  -> Mostrar els usuaris que s’han apuntat a un taller.");
+        System.out.println("    6  -> Registrar un usuari a taller");
+        System.out.println("    7  -> Mostrar usuaris apuntats a un taller");
         // System.out.println("8 -> Calcular l’usuari que s’ha apuntat a més tallers.");
         // System.out.println("9 -> Registrar la nota que un usuari que s’ha apuntat a un taller li dona un cop s’ha fet.");
         // System.out.println("10 -> Calcular la nota mitja que ha rebut un taller");
         // System.out.println("11 -> Quin és el taller que ha tingut més èxit? Calcularem l’èxit segons el taller que ha tingut una ocupació més alta en proporció a les places que oferia");
-        System.out.println("    12 -> Obtenir i mostrar les dades de la llista de visites ofertes per una entitat");
+        System.out.println("    12 -> Mostrar les dades de les visites ofertes per una entitat");
         System.out.println("    13 -> Mostrar les dades de les xerrades que farà una persona concreta.");
-        System.out.println("    14 -> Donar de baixa un taller sempre que no hi hagi usuaris apuntats");
-        System.out.println("    15 -> Sortir de l’aplicació");
+        System.out.println("    14 -> Donar de baixa un taller ( si no hi ha usuaris apuntats )");
+        System.out.println("    15 -> Sortir de l'aplicacio");
     }
 
     /*
@@ -426,6 +426,24 @@ public class App {
             }
         } while ( cpostal < 43000 || cpostal > 43999 );
         return cpostal;
+    }
+
+    /*
+    * Funcio que retorna un nombre enter; el fckin valoracio del taller.
+    * @return taller taller
+    */
+    private static int demanarValoracio() {
+        int val = 0;
+        do {
+            try {
+                System.out.print("Valoracio[0..10]: ");
+                val = teclat.nextInt();
+            } catch ( InputMismatchException ex ) {
+                teclat.nextLine();
+                System.out.println(" Escriu un valor numeric correcte del 0 al 10");
+            }
+        } while ( val < 1 || val > 10 );
+        return val;
     }
 
     /*
@@ -556,7 +574,7 @@ public class App {
         LlistaActivitats acts; String nomEntitat, nomAutor, codiTaller, aliesUsuari;
         boolean audioguia, adaptada, guardar;
         Taller tallerAux;
-        int dia;
+        int dia, valoracio;
 
         /* Carregar tota la informació del fitxer a les llistes */
         carregarInfoFitxers(entitats, usuaris, activitats);
@@ -646,7 +664,26 @@ public class App {
 
                     break;
                 case 9:
-
+                    System.out.print("Codi Taller: ");
+                    codiTaller = teclat.next();
+                    try {
+                        tallerAux  = activitats.getTallerPerCodi(codiTaller); // No passa res per treballar sobre la referencia, enlloc d'una copia
+                        if ( tallerAux.hiHaReservesFetes() ) {
+                            System.out.print("Nom Usuari: ");
+                            aliesUsuari = teclat.next();
+                            if ( tallerAux.hiHaUsuari( aliesUsuari ) ) {
+                                valoracio = demanarValoracio();
+                                tallerAux.ferValoracio(aliesUsuari, valoracio);
+                                System.out.println("Valoracio guardada");
+                            } else {
+                                System.out.println("L'usuari " + aliesUsuari + " no pretany al taller " + codiTaller);
+                            }
+                        } else {
+                            System.out.println("No hi han usuaris");
+                        }
+                    } catch ( TallerNoTrobatExcepcio ex ) {
+                        System.out.println(ex.toString() );
+                    }
                     break;
                 case 10:
 

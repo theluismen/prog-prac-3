@@ -107,6 +107,23 @@ public class Taller extends Activitat {
     }
 
     /**
+    * Metode que retorna el valor boolea corresponent a si hi ha un usari a la llista
+    * de reserves amb el mateix nom que es que es pasa per parametre
+    * fetes al taller.
+    *
+    * @return reservesfetes
+    */
+    public boolean hiHaUsuari ( String aliesUsuari ) {
+        boolean trobat = false;
+        for ( int i = 0; i < this.reserves.getNElem() && ! trobat; i++ ) {
+            if ( this.reserves.getReserva(i).getAliesUsuari().equals(aliesUsuari) ) {
+                trobat = true;
+            }
+        }
+        return trobat;
+    }
+
+    /**
     * Metode realitza una reserva al taller actual.
     *
     * @param  usuari  Objecte Usuari al que se li fa la reserva
@@ -124,6 +141,24 @@ public class Taller extends Activitat {
     */
     public boolean ferReserva ( String aliesUsuari ) {
         return this.reserves.addReserva( aliesUsuari, super.getCodi() );
+    }
+
+    /**
+    * Metode realitza una reserva al taller actual.
+    *
+    * @param  aliesUsuari  Alies del usuari al que se li fa la reserva
+    * @return afegit  Si s'ha afegit o no
+    */
+    public boolean ferValoracio ( String aliesUsuari, int valoracio ) {
+        boolean fet = false; Reserva reserva;
+        for ( int i = 0; i < this.reserves.getNElem() && ! fet; i++ ) {
+            reserva = this.reserves.getReserva(i);
+            if ( reserva.getAliesUsuari().equals(aliesUsuari) ) {
+                this.reserves.setValoracioPerIndexUsuari(i, valoracio);
+                fet = true;
+            }
+        }
+        return fet;
     }
 
     /**

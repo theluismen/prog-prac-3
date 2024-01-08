@@ -20,7 +20,9 @@ public class LlistaReserves {
 
     /* METODOS */
     /* METODOS: Setters */
-
+    public void setValoracioPerIndexUsuari ( int index, int valoracio ) {
+        this.llista[index].setValoracio(valoracio);
+    }
     /* METODOS: Getters */
     /**
      * Metode que retorna una copia de la instancia indicada.
