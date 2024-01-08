@@ -631,10 +631,14 @@ public class App {
                             System.out.print("Nom Usuari: ");
                             aliesUsuari = teclat.next();
                             try {
-                                if ( tallerAux.ferReserva( usuaris.getUsuariPerNom(aliesUsuari).getAlies() )) {
-                                    System.out.println("Usuari: " + aliesUsuari + ", afegit al taller " + codiTaller);
+                                if ( ! tallerAux.hiHaUsuari( aliesUsuari ) ) {
+                                    if ( tallerAux.ferReserva( usuaris.getUsuariPerNom(aliesUsuari).getAlies() )) {
+                                        System.out.println("Usuari: " + aliesUsuari + ", afegit al taller " + codiTaller);
+                                    } else {
+                                        System.out.println("No s'ha pogut afegir l'usuri al taller");
+                                    }
                                 } else {
-                                    System.out.println("No s'ha pogut afegir l'usuri al taller");
+                                    System.out.println("L'usuari ja es apuntat al taller");
                                 }
                             } catch ( UsuariNoTrobatExcepcio ex ) {
                                 System.out.println(ex.toString() );

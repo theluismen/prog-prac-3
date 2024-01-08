@@ -5,6 +5,7 @@ public class Usuari {
     private String alies;
     private String correu;
     private int    cpostal;
+    private int    tallers; // tallers als que s'ha apuntat
 
     /* CONSTRUCTOR */
     /**
@@ -18,6 +19,7 @@ public class Usuari {
         this.alies   = alies;
         this.correu  = correu;
         this.cpostal = cpostal;
+        this.tallers = 0;
     }
 
     /* METODOS */
@@ -77,6 +79,13 @@ public class Usuari {
         return this.cpostal;
     }
 
+    /**
+    * Incrementa el contador de tallers apuntats
+    */
+    public void incTallers ( ) {
+        this.tallers ++;
+    }
+
     /* METODOS: Varios */
     /**
     * Metode que retorna una copia de l'instancia
@@ -94,6 +103,6 @@ public class Usuari {
     * @return  String  String que conte informació
     */
     public String toString ( ) {
-        return String.format("%-15s:%-30s:%s", this.alies, this.correu, String.valueOf(this.cpostal));
+        return String.format("%-15s:%-30s:%s:%s", this.alies, this.correu, String.valueOf(this.cpostal), String.valueOf(this.tallers));
     }
 }
