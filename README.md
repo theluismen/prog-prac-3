@@ -13,7 +13,7 @@
 - [ ] - Opcio 11
 - [x] - Opcio 12
 - [x] - Opcio 13
-- [ ] - Opcio 14
+- [x] - Opcio 14
 - [ ] - Opcio 15
 
 ## Compilacion y ejecución

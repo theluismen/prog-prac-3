@@ -19,7 +19,7 @@ public class Reserva {
         this.codi        = codi;
         this.aliesUsuari = aliesUsuari;
         this.codiTaller  = codiTaller;
-        this.valoracio   = 0;
+        this.valoracio   = -1;
     }
 
     /**

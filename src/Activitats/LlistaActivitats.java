@@ -441,6 +441,22 @@ public class LlistaActivitats {
         }
     }
 
+    public void eliminaTallerPerCodi ( String codiTaller ) {
+        boolean eliminat = false;
+        int i = 0, j;
+        while ( i < this.nTallers && ! eliminat ) {
+            if ( this.tallers[i].getCodi().equals(codiTaller.toUpperCase()) ) {
+                for ( j = i; j < this.nTallers - 1; j++ ) {
+                    this.tallers[j] = this.tallers[j+1].copia();
+                }
+                this.nTallers--;
+                eliminat = true;
+            } else {
+                i++;
+            }
+        }
+    }
+
     /**
      * Metode que retorna informacio del tots
      *  objectes emmaatzemats.
