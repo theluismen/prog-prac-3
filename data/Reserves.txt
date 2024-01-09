@@ -1,5 +1,7 @@
-perrosanxe;INN110
-ggquim;INN110
+perrosanxe;INN110;10
+ggquim;INN110;10
 marsunzo;QUA111
 florijas;QUA111
-kilopara;QUA111
+kilopara;QUA111;8
+alopez123;NEX112;10
+alopez123;MAR113;9

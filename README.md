@@ -14,7 +14,7 @@
 - [x] - Opcio 12
 - [x] - Opcio 13
 - [x] - Opcio 14
-- [ ] - Opcio 15
+- [x] - Opcio 15
 
 ## Compilacion y ejecución
 Para compilar el proyecto disponemos un `Makefile`. Este compilará todos los archvivos `.java` de uno en uno.

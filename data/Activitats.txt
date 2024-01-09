@@ -11,3 +11,4 @@ ALP109;Desarrollo Sostenible;Barcelona;43009;11;AlphaSuppliers;false;true
 INN110;Creacion de un Blog de Ciencia;Reus;43201;14;InnovateTechSolutions;10;120;15
 QUA111;Desarrollo de Videojuegos;Barcelona;43003;17;QuantumDynamicsLtd;10;120;15
 NEX112;Participacion en Hackaton;Barcelona;43005;17;EmpresaX;10;120;15
+MAR113;Libros;Reus;43000;14;Marica;10;60;23

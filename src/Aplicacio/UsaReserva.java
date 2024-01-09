@@ -7,7 +7,7 @@ public class UsaReserva {
         Reserva reserva, reserva2;
 
         System.out.println("CONSTRUCTOR");
-        reserva = new Reserva ( 100, "perrosanxe", "XER100");
+        reserva = new Reserva ( 1000, "perrosanxe", "XER100");
         reserva.setValoracio(0);
         System.out.println(reserva.toString());
         System.out.println();
@@ -17,6 +17,7 @@ public class UsaReserva {
         reserva.setAliesUsuari("Frionel Pesi");
         reserva.setCodiTaller("VIS100");
         reserva.setValoracio(10);
+        System.out.println(reserva.toStringCSV());
 
         System.out.println("GETTERS");
         System.out.println("Codi        : " + reserva.getCodi());

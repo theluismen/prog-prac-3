@@ -180,6 +180,21 @@ public class Taller extends Activitat {
     * Metode realitza una reserva al taller actual.
     *
     * @param  aliesUsuari  Alies del usuari al que se li fa la reserva
+    * @param  valoracio    valoracio que l'usuari fa al taller
+    * @return afegit       Si s'ha afegit o no
+    */
+    public boolean ferReserva ( String aliesUsuari, int valoracio ) {
+        return this.reserves.addReserva( aliesUsuari, super.getCodi(), valoracio );
+    }
+
+    public boolean ferReserva ( Reserva reserva ) {
+        return this.reserves.addReserva( reserva );
+    }
+
+    /**
+    * Metode realitza una reserva al taller actual.
+    *
+    * @param  aliesUsuari  Alies del usuari al que se li fa la reserva
     * @return afegit  Si s'ha afegit o no
     */
     public boolean ferValoracio ( String aliesUsuari, int valoracio ) {
@@ -232,7 +247,7 @@ public class Taller extends Activitat {
     private void copiarReserves ( Taller origen, Taller desti ) {
         int i;
         for ( i = 0; i < origen.getNReservas(); i++ ) {
-            desti.ferReserva(origen.getReserva(i).getAliesUsuari());
+            desti.ferReserva(origen.getReserva(i));
         }
     }
 

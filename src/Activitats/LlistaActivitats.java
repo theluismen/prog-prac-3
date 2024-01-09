@@ -268,7 +268,7 @@ public class LlistaActivitats {
     */
     public int getNReserves() {
         int i, nRes = 0;
-        for ( i = 0; i < this.tallers.length; i++ ) {
+        for ( i = 0; i < this.nTallers; i++ ) {
             nRes += this.tallers[i].getNReservas();
         }
         return nRes;

@@ -214,7 +214,7 @@ public class App {
     * @param   llista      Llista que guardara les reserves
     */
     private static void carregarReserves  ( final String filename, LlistaActivitats activitats, LlistaUsuaris usuaris ) {
-        BufferedReader br; String linia;
+        BufferedReader br; String linia; int valoracio;
         String[] dades; String aliesUsuari, coditaller;  // Informacio del Usuari llegit
         try {
             br = new BufferedReader( new FileReader( filename ) );
@@ -222,12 +222,15 @@ public class App {
             while ( linia != null ) {
                 dades = linia.split(ArxiusApp.ARXIU_DELIMITER);
                 /* Guardar informacio en variables ( comoditat ) */
-                //codi    = Integer.parseInt(dades[0]);
                 aliesUsuari = dades[0];
                 coditaller  = dades[1];
+                valoracio   = -1;
+                if ( dades.length == 3 ) {
+                    valoracio = Integer.parseInt(dades[2]);
+                }
                 /* Afegir una nova Reserva amb la informacio llegida */
                 try {
-                    activitats.getTallerPerCodi(coditaller).ferReserva( aliesUsuari );
+                    activitats.getTallerPerCodi(coditaller).ferReserva( aliesUsuari, valoracio );
                     usuaris.getUsuariPerNom(aliesUsuari).incTallers();
                 } catch ( TallerNoTrobatExcepcio ex ) {
                     System.out.println(ex.toString());
@@ -285,6 +288,17 @@ public class App {
         carregarReserves(ArxiusApp.ARXIU_RESERVES, activitats, usuaris);
     }
 
+    /**
+    * Funcio que guarda la informacio de les llistes dinamiques als fitxers
+    * corresponents.
+    *
+    * @param   activitats  Objecte tipus LlistaActivitats
+    */
+    private static void desarInfoFitxers( LlistaActivitats activitats ) {
+        desarActivitats(ArxiusApp.ARXIU_ACTIVITATS, activitats);
+        desarReserves(ArxiusApp.ARXIU_RESERVES, activitats);
+    }
+
     /*
     * Mostra el menu d'opcions
     */
@@ -298,13 +312,13 @@ public class App {
         System.out.println("    6  -> Registrar un usuari a taller");
         System.out.println("    7  -> Mostrar usuaris apuntats a un taller");
         System.out.println("    8  -> Calcular l’usuari que s’ha apuntat a més tallers");
-        System.out.println("    9  -> Registrar la nota que un usuari que s’ha apuntat a un taller li dona un cop s’ha fet.");
+        System.out.println("    9  -> Registrar valoracio d'un usuari a un taller.");
         System.out.println("   10  -> Calcular la nota mitja que ha rebut un taller");
-        // System.out.println("11 -> Quin és el taller que ha tingut més èxit? Calcularem l’èxit segons el taller que ha tingut una ocupació més alta en proporció a les places que oferia");
-        System.out.println("    12 -> Mostrar les dades de les visites ofertes per una entitat");
-        System.out.println("    13 -> Mostrar les dades de les xerrades que farà una persona concreta.");
-        System.out.println("    14 -> Donar de baixa un taller ( si no hi ha usuaris apuntats )");
-        System.out.println("    15 -> Sortir de l'aplicacio");
+        System.out.println("   11  -> Quin és el taller que ha tingut més èxit?");
+        System.out.println("   12  -> Mostrar les dades de les visites ofertes per una entitat");
+        System.out.println("   13  -> Mostrar les dades de les xerrades que farà una persona concreta.");
+        System.out.println("   14  -> Donar de baixa un taller ( si no hi ha usuaris apuntats )");
+        System.out.println("   15  -> Sortir de l'aplicacio");
     }
 
     /*
@@ -753,9 +767,9 @@ public class App {
                     sortir  = true;
                     guardar = demanarGuardarInfor();
                     if ( guardar ) {
-                        // desarActivitats(ArxiusApp.ARXIU_ACTIVITATS, activitats);
-                        // desarReserves("mami.txt", activitats);
+                        desarInfoFitxers(activitats);
                     }
+                    System.out.println("[-] - Programa acabat");
                     break;
             }
         } while ( ! sortir );

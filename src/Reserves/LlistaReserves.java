@@ -97,6 +97,10 @@ public class LlistaReserves {
         return this.addReserva( new Reserva(codiIndex, aliesUsuari, codiTaller) );
     }
 
+    public boolean addReserva ( String aliesUsuari, String codiTaller, int valoracio ) {
+        return this.addReserva( new Reserva(codiIndex, aliesUsuari, codiTaller, valoracio) );
+    }
+
     /**
      * Metode que retorna informacio del tots
      * objectes emmaatzemats.

@@ -130,7 +130,7 @@ public class Reserva {
     * @return  String  String que conte informació
     */
     public String toString ( ) {
-        return String.join(":", String.valueOf(this.codi), this.aliesUsuari, this.codiTaller, String.valueOf(this.valoracio));
+        return String.join(":", String.valueOf(this.codi), this.aliesUsuari, this.codiTaller, ( this.valoracio > 0 ) ? String.valueOf(this.valoracio) : "");
     }
 
     /**
@@ -140,6 +140,10 @@ public class Reserva {
     * @return  String  String que conte informació
     */
     public String toStringCSV ( ) {
-        return String.join(";", this.aliesUsuari, this.codiTaller);
+        String val = "";
+        if ( this.valoracio >= 0 ) {
+            val = ";" + String.valueOf(this.valoracio);
+        }
+        return String.join(";", this.aliesUsuari, this.codiTaller) + val;
     }
 }
