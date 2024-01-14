@@ -39,10 +39,7 @@ Una vez compilado el proyecto, para ejecutar la version de la aplicación en con
 ```
 make app
 ```
-Y para la versión gráfica:
-```
-make gui
-```
+En cambio, para ejecutar la versión gráfica debemos usar el programa IDE Intellij de Jetbrains.
 ## Participantes
 - **Equipo de dirección**
 
