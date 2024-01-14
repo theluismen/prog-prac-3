@@ -35,7 +35,14 @@ make UsaReserva
 make UsaLlistaReserves
 make UsaActivitat
 ```
-
+Una vez compilado el proyecto, para ejecutar la version de la aplicación en consola se dispone de:
+```
+make app
+```
+Y para la versión gráfica:
+```
+make gui
+```
 ## Participantes
 - **Equipo de dirección**
 
